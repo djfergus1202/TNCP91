@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmD Career Strategizer - Industry | Retail | Hospital</title>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f5f5f5;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1em;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab:hover {
+            background: #e8e8e8;
+        }
+
+        .tab.active {
+            background: white;
+            color: #1e3c72;
+            border-bottom: 3px solid #1e3c72;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.3s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #1e3c72;
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .section h3 {
+            color: #2a5298;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .timeline-item h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .timeline-item .comp {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .kol-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #764ba2;
+        }
+
+        .kol-card h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .kol-tier {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .tier-1 {
+            background: #ffd700;
+            color: #000;
+        }
+
+        .tier-2 {
+            background: #c0c0c0;
+            color: #000;
+        }
+
+        .tier-3 {
+            background: #cd7f32;
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #1e3c72;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .output-area {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 2px dashed #ddd;
+            min-height: 100px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .alert-info {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #1976d2;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+        }
+
+        .alert-warning {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            color: #e65100;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💊 PharmD Career Strategizer</h1>
+            <p>Your roadmap to success in Industry, Retail, and Hospital Pharmacy</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Comprehensive career planning for all pharmacy professionals</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="openTab('profile')">📋 Profile Setup</button>
+            <button class="tab" onclick="openTab('timeline')">📅 Career Timeline</button>
+            <button class="tab" onclick="openTab('okrs')">🎯 Quarterly OKRs</button>
+            <button class="tab" onclick="openTab('companies')">🏢 Target Companies</button>
+            <button class="tab" onclick="openTab('kol')">👥 KOL Mapper</button>
+            <button class="tab" onclick="openTab('dossier')">📄 Proof of Work</button>
+            <button class="tab" onclick="openTab('comp')">💰 Comp Tracker</button>
+            <button class="tab" onclick="openTab('accelerator')">🚀 Accelerator</button>
+            <button class="tab" onclick="openTab('tncp')">🔬 TNCP Council</button>
+            <button class="tab" onclick="openTab('notes')">📝 Notes</button>
+        </div>
+
+        <!-- Profile Setup Tab -->
+        <div id="profile" class="tab-content active">
+            <div class="section">
+                <h2>Your Profile & Career Path Selection</h2>
+                
+                <div class="input-group">
+                    <label>Select Your Career Path</label>
+                    <select id="careerPath" onchange="updateCareerPathOptions()">
+                        <option value="">-- Select Career Path --</option>
+                        <option value="industry">Industry Pharmacy (Medical Affairs, MSL, Clinical Development)</option>
+                        <option value="retail">Retail/Community Pharmacy (CVS, Walgreens, Independent)</option>
+                        <option value="hospital">Hospital/Health-System Pharmacy (Clinical, Critical Care)</option>
+                        <option value="specialty">Specialty Pharmacy (Oncology, Transplant, Rare Disease)</option>
+                    </select>
+                </div>
+
+                <div class="alert alert-info" id="career-path-description" style="display:none;">
+                    <!-- Dynamic description will appear here -->
+                </div>
+
+                <div class="input-group">
+                    <label>Current Stage</label>
+                    <select id="currentStage">
+                        <option value="p1">P1 (2028 grad)</option>
+                        <option value="p2">P2 (2027 grad)</option>
+                        <option value="p3">P3 (2026 grad)</option>
+                        <option value="p4" selected>P4 (2025 grad)</option>
+                        <option value="resident">PGY1/PGY2 Resident</option>
+                        <option value="fellow">Fellow</option>
+                        <option value="practicing">Practicing Pharmacist (0-3 years)</option>
+                        <option value="experienced">Experienced Pharmacist (3+ years)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Base Location / Region</label>
+                    <select id="baseLocation">
+                        <option value="atlanta" selected>Atlanta, GA</option>
+                        <option value="other-ga">Other Georgia</option>
+                        <option value="southeast">Southeast US</option>
+                        <option value="northeast">Northeast US</option>
+                        <option value="midwest">Midwest US</option>
+                        <option value="west">West Coast</option>
+                        <option value="southwest">Southwest US</option>
+                        <option value="remote">Remote/Flexible</option>
+                    </select>
+                </div>
+
+                <!-- Industry-specific fields -->
+                <div id="industry-fields" style="display:none;">
+                    <div class="input-group">
+                        <label>Target Therapy Area (Industry)</label>
+                        <select id="therapyArea">
+                            <option value="oncology">Oncology (Precision/BiTEs/ADCs)</option>
+                            <option value="rare">Rare Disease</option>
+                            <option value="gene-therapy">Gene Therapy</option>
+                            <option value="car-t">CAR-T / Cell Therapy</option>
+                            <option value="radiopharm">Radiopharmaceuticals</option>
+                            <option value="neuro">Neuroscience</option>
+                            <option value="immuno">Immunology</option>
+                            <option value="cv">Cardiovascular</option>
+                            <option value="metabolic">Metabolic/Endocrine</option>
+                            <option value="open">Open to Multiple</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Target Industry Role</label>
+                        <select id="entryRole">
+                            <option value="msl" selected>MSL (Field Medical)</option>
+                            <option value="hq-advisor">HQ Medical Advisor</option>
+                            <option value="med-info">Medical Information</option>
+                            <option value="contract-msl">Contract MSL (TMAC/CSO)</option>
+                            <option value="clinical-dev">Clinical Development</option>
+                            <option value="pharmacovigilance">Pharmacovigilance</option>
+                            <option value="regulatory">Regulatory Affairs</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Retail-specific fields -->
+                <div id="retail-fields" style="display:none;">
+                    <div class="input-group">
+                        <label>Retail Setting Preference</label>
+                        <select id="retailSetting">
+                            <option value="chain">Chain Pharmacy (CVS, Walgreens, Walmart)</option>
+                            <option value="independent">Independent Community Pharmacy</option>
+                            <option value="grocery">Grocery Store Pharmacy (Publix, Kroger)</option>
+                            <option value="mass">Mass Merchandiser (Target, Costco)</option>
+                            <option value="specialty-retail">Specialty Retail (compounding, niche)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Career Goal (Retail)</label>
+                        <select id="retailGoal">
+                            <option value="staff">Staff Pharmacist</option>
+                            <option value="pic">Pharmacy Manager (PIC)</option>
+                            <option value="district">District/Area Manager</option>
+                            <option value="regional">Regional Director</option>
+                            <option value="owner">Pharmacy Owner</option>
+                            <option value="specialty-service">Clinical Services/MTM Specialist</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Hospital-specific fields -->
+                <div id="hospital-fields" style="display:none;">
+                    <div class="input-group">
+                        <label>Hospital Practice Area</label>
+                        <select id="hospitalArea">
+                            <option value="general">General Clinical Pharmacy</option>
+                            <option value="icu">Critical Care/ICU</option>
+                            <option value="oncology">Oncology/Hematology</option>
+                            <option value="id">Infectious Disease</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="emergency">Emergency Medicine</option>
+                            <option value="ambulatory">Ambulatory Care</option>
+                            <option value="peds">Pediatrics/NICU</option>
+                            <option value="transplant">Transplant</option>
+                            <option value="psych">Psychiatry</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Career Goal (Hospital)</label>
+                        <select id="hospitalGoal">
+                            <option value="clinical-specialist">Clinical Specialist</option>
+                            <option value="pgy2-residency">PGY2 Residency</option>
+                            <option value="clinical-coordinator">Clinical Coordinator</option>
+                            <option value="manager">Pharmacy Manager</option>
+                            <option value="director">Director of Pharmacy</option>
+                            <option value="system-director">System Director (Multi-hospital)</option>
+                            <option value="academic">Clinical Faculty</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Current Compensation (if applicable)</label>
+                    <input type="number" id="currentComp" placeholder="e.g., 120000">
+                </div>
+
+                <div class="input-group">
+                    <label>Target Compensation (5-year goal)</label>
+                    <input type="number" id="targetComp" placeholder="e.g., 200000">
+                </div>
+
+                <button class="btn" onclick="saveProfile()">Save Profile</button>
+                <button class="btn btn-secondary" onclick="generateCareerPlan()">Generate My Career Plan</button>
+            </div>
+
+            <div id="profileOutput" class="output-area" style="display:none;">
+                <!-- Generated profile summary will appear here -->
+            </div>
+        </div>
+
+        <!-- Career Timeline Tab -->
+        <div id="timeline" class="tab-content">
+            <div class="section">
+                <h2>Your 2026-2032 Career Ladder</h2>
+                <p style="margin-bottom: 20px;">The agility-driven path to $300K-$600K with ceiling avoidance</p>
+
+                <div class="timeline" id="careerTimeline">
+                    <!-- Timeline will be generated dynamically -->
+                </div>
+
+                <button class="btn" onclick="generateTimeline()">Generate Timeline</button>
+                <button class="btn btn-secondary" onclick="exportTimeline()">Export to PDF</button>
+            </div>
+        </div>
+
+        <!-- Quarterly OKRs Tab -->
+        <div id="okrs" class="tab-content">
+            <div class="section">
+                <h2>Quarterly OKRs & Execution Cadence</h2>
+                
+                <div class="input-group">
+                    <label>Select Quarter</label>
+                    <select id="quarterSelect" onchange="loadQuarterOKRs()">
+                        <option value="2026-q1">2026 Q1 - Positioning</option>
+                        <option value="2026-q2">2026 Q2 - Positioning</option>
+                        <option value="2026-q3">2026 Q3 - Deal Flow</option>
+                        <option value="2026-q4">2026 Q4 - Deal Flow</option>
+                        <option value="2027-q1">2027 Q1 - Lock the Start</option>
+                        <option value="2027-q2">2027 Q2 - Lock the Start</option>
+                        <option value="2027-q3">2027 Q3-2028 Q2 - Year 1 MSL Excellence</option>
+                        <option value="2028-q3">2028 Q3-2029 Q2 - Year 2 Senior Scope</option>
+                        <option value="2029-q3">2029 Q3-2030 Q2 - Year 3 Associate Director</option>
+                        <option value="2030-q3">2030 Q3-2031 Q2 - Year 4 Director</option>
+                        <option value="2031-q3">2031 Q3-2032 Q4 - Year 5 $500K Close</option>
+                    </select>
+                </div>
+
+                <div id="okrContent"></div>
+
+                <h3>Weekly/Monthly Cadence</h3>
+                <div class="card">
+                    <h4>Weekly Actions</h4>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> 1 internal stakeholder touchpoint</li>
+                        <li><input type="checkbox"> 2 external network touches</li>
+                        <li><input type="checkbox"> Portfolio/progress update</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="margin-top: 15px;">
+                    <h4>Monthly Actions</h4>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> Manager impact memo (wins, insights, next bets)</li>
+                        <li><input type="checkbox"> Promotion packet refresh</li>
+                        <li><input type="checkbox"> Network expansion (5 new connections)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="margin-top: 15px;">
+                    <h4>Quarterly Actions</h4>
+                    <ul class="checklist">
+                        <li><input type="checkbox"> Scope expansion proposal</li>
+                        <li><input type="checkbox"> Compensation benchmarking</li>
+                        <li><input type="checkbox"> Promotion dossier update</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Target Companies Tab -->
+        <div id="companies" class="tab-content">
+            <div class="section">
+                <h2 id="companies-header">Target Employers by Career Path</h2>
+                
+                <div class="input-group">
+                    <label>Select Career Path to View Employers</label>
+                    <select id="employer-path-select" onchange="updateEmployerList()">
+                        <option value="industry">Industry Pharmacy</option>
+                        <option value="retail">Retail/Community Pharmacy</option>
+                        <option value="hospital">Hospital/Health-System</option>
+                        <option value="specialty">Specialty Pharmacy</option>
+                    </select>
+                </div>
+
+                <div id="employer-content">
+                    <!-- Dynamic employer lists will be inserted here -->
+                </div>
+
+                <button class="btn" onclick="exportCompanyList()">Export Employer Target List</button>
+            </div>
+        </div>
+
+        <!-- KOL Mapper Tab -->
+        <div id="kol" class="tab-content">
+            <div class="section">
+                <h2>KOL Strategy & Insights Capture</h2>
+                
+                <div class="alert alert-warning">
+                    <strong>Promotion Lever:</strong> Insight quality > activity. Build 6-10 KOL relationships with documented insight themes.
+                </div>
+
+                <h3>Add New KOL</h3>
+                <div class="grid">
+                    <div>
+                        <div class="input-group">
+                            <label>KOL Name</label>
+                            <input type="text" id="kolName" placeholder="Dr. [Name]">
+                        </div>
+                        <div class="input-group">
+                            <label>Institution</label>
+                            <input type="text" id="kolInstitution" placeholder="e.g., Emory, MD Anderson">
+                        </div>
+                        <div class="input-group">
+                            <label>Specialty/Focus</label>
+                            <input type="text" id="kolSpecialty" placeholder="e.g., Precision Oncology, CAR-T">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group">
+                            <label>Tier</label>
+                            <select id="kolTier">
+                                <option value="1">Tier 1 - Global/National Leader (Guidelines, PI major trials)</option>
+                                <option value="2">Tier 2 - Regional Expert (High-volume, regional speaker)</option>
+                                <option value="3">Tier 3 - Local Influencer (Community thought leader)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Engagement Objective</label>
+                            <select id="kolObjective">
+                                <option value="strategic">Strategic partnership, advisory boards</option>
+                                <option value="education">Disease state education, speaker bureau</option>
+                                <option value="adoption">Clinical practice adoption</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Last Contact / Key Insight</label>
+                    <textarea id="kolInsight" rows="3" placeholder="Observation → Analysis → Recommendation"></textarea>
+                </div>
+
+                <button class="btn" onclick="addKOL()">Add KOL</button>
+                <button class="btn btn-secondary" onclick="generateKOLReport()">Generate Insights Report</button>
+
+                <h3>Your KOL Network</h3>
+                <div id="kolList">
+                    <!-- KOL cards will be added dynamically -->
+                </div>
+
+                <h3>Engagement Plan Template</h3>
+                <div class="card">
+                    <h4>Email Hook Generator</h4>
+                    <div class="input-group">
+                        <label>KOL Recent Publication/Work</label>
+                        <input type="text" id="kolPublication" placeholder="e.g., Recent NEJM paper on BiTE therapy">
+                    </div>
+                    <button class="btn" onclick="generateEmailHook()">Generate Email Hook</button>
+                    <div id="emailHookOutput" class="output-area" style="display:none; margin-top: 15px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proof of Work Tab -->
+        <div id="dossier" class="tab-content">
+            <div class="section">
+                <h2>Proof-of-Work Generators</h2>
+                
+                <div class="alert alert-info">
+                    <strong>Non-Negotiable Portfolio:</strong> 2 disease-state dossiers + 2 executive briefs + 1 KOL strategy plan
+                </div>
+
+                <h3>Disease-State Dossier Generator</h3>
+                <div class="input-group">
+                    <label>Dossier Type</label>
+                    <select id="dossierType">
+                        <option value="oncology">Oncology (Complex MoA)</option>
+                        <option value="rare">Rare Disease</option>
+                        <option value="gene">Gene/Cell Therapy</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Cancer Type / Disease</label>
+                    <input type="text" id="diseaseType" placeholder="e.g., NSCLC, Duchenne MD, ALL">
+                </div>
+
+                <div class="input-group">
+                    <label>Target/Biomarker</label>
+                    <input type="text" id="targetBiomarker" placeholder="e.g., KRAS G12C, dystrophin, CD19">
+                </div>
+
+                <button class="btn" onclick="generateDossierOutline()">Generate Dossier Outline</button>
+                <div id="dossierOutput" class="output-area" style="display:none; margin-top: 15px;"></div>
+
+                <h3>Executive Brief Generator</h3>
+                <div class="input-group">
+                    <label>Brief Type</label>
+                    <select id="briefType">
+                        <option value="congress">Congress Insights Brief</option>
+                        <option value="medical-response">Medical Response (SRD)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Context (Congress/Question)</label>
+                    <input type="text" id="briefContext" placeholder="e.g., ASCO 2027, Off-label inquiry about Drug X in Population Y">
+                </div>
+
+                <button class="btn" onclick="generateBriefOutline()">Generate Brief Outline</button>
+                <div id="briefOutput" class="output-area" style="display:none; margin-top: 15px;"></div>
+            </div>
+        </div>
+
+        <!-- Accelerator Plan Tab -->
+        <div id="accelerator" class="tab-content">
+            <div class="section">
+                <div style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px;">
+                    <h2 style="font-size: 2em; margin-bottom: 10px; color: white;">🚀 The Accelerator Plan</h2>
+                    <p style="margin-bottom: 30px; opacity: 0.9;">Target: Senior Director / Head of Medical by 2032</p>
+                    
+                    <div class="grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 0.75em; text-transform: uppercase; opacity: 0.7; margin-bottom: 5px;">Year 5 Target</div>
+                            <div id="accel-target" style="font-size: 1.8em; font-weight: bold; color: #4ade80;">$500,000</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 0.75em; text-transform: uppercase; opacity: 0.7; margin-bottom: 5px;">Required Velocity</div>
+                            <div id="accel-velocity" style="font-size: 1.5em; font-weight: bold;">+38.0% / yr</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 0.75em; text-transform: uppercase; opacity: 0.7; margin-bottom: 5px;">End State</div>
+                            <div style="font-size: 1.5em; font-weight: bold;">Georgia → Bahamas</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                        <label style="display: block; margin-bottom: 10px; font-weight: 600;">Adjust Your Target:</label>
+                        <input type="range" id="accel-slider" min="100000" max="600000" step="10000" value="500000" 
+                               style="width: 100%; margin-bottom: 10px;"
+                               oninput="updateAccelerator(this.value)">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85em; opacity: 0.7;">
+                            <span>$100K</span>
+                            <span>$600K+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 20px; color: #1e3c72;">Milestone Trajectory</h3>
+                <div id="accel-milestones">
+                    <!-- Dynamic milestones will be inserted here -->
+                </div>
+
+                <div class="alert alert-info" style="margin-top: 30px;">
+                    <strong>The Accelerator Strategy:</strong> This plan assumes aggressive lateral moves every 18-24 months to maximize scope expansion and equity capture. The formula: 
+                    CAGR = (Target / Current)^(1/Years) - 1. For $500K in 5 years from $100K base, you need +38% annual growth—achievable only through strategic job changes, not tenure.
+                </div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 20px; color: #1e3c72;">Strategic Levers</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>🎯 Scope Jumping</h4>
+                        <p>Move from Big Pharma (training) → Biotech (equity + title inflation) → Big Pharma (cash calibration)</p>
+                        <div style="margin-top: 10px; padding: 10px; background: #f0f9ff; border-radius: 5px; font-size: 0.9em;">
+                            <strong>Impact:</strong> +30-50% comp per move
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4>💎 Equity Optimization</h4>
+                        <p>Target companies where equity refresh is meaningful. Ask about refresh cadence in interviews.</p>
+                        <div style="margin-top: 10px; padding: 10px; background: #f0fdf4; border-radius: 5px; font-size: 0.9em;">
+                            <strong>Impact:</strong> $50K-$150K annual equity value
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4>🔄 Controlled Add-Ons</h4>
+                        <p>Adjunct teaching ($15K-$40K), IP/educational products ($20K-$60K), conflict-cleared consulting ($30K-$100K)</p>
+                        <div style="margin-top: 10px; padding: 10px; background: #fef3c7; border-radius: 5px; font-size: 0.9em;">
+                            <strong>Impact:</strong> $50K-$150K supplemental income
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4>⚡ Niche Premium</h4>
+                        <p>Exclusively target high-margin, talent-scarce TAs: Gene Therapy, CAR-T, Radiopharmaceuticals, Precision Oncology</p>
+                        <div style="margin-top: 10px; padding: 10px; background: #fae8ff; border-radius: 5px; font-size: 0.9em;">
+                            <strong>Impact:</strong> +20-30% premium over general medicine
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Tab -->
+        <div id="notes" class="tab-content">
+            <div class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e5e7eb;">
+                    <h2 style="color: #1e3c72; margin: 0;">📝 Strategic Notes & Action Items</h2>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <span id="notes-status" style="color: #10b981; font-weight: bold; font-size: 0.9em;"></span>
+                        <button class="btn" onclick="saveNotes()" style="padding: 8px 16px;">
+                            💾 Save Notes
+                        </button>
+                        <button class="btn btn-secondary" onclick="clearNotes()" style="padding: 8px 16px;">
+                            🗑️ Clear
+                        </button>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>Use this space for:</strong> Meeting notes, informational call summaries, networking insights, interview prep, 
+                    strategic ideas, or anything you want to remember. Notes are saved locally in your browser.
+                </div>
+
+                <textarea id="career-notes" 
+                          rows="20" 
+                          style="width: 100%; padding: 20px; border: 2px solid #e5e7eb; border-radius: 8px; 
+                                 font-family: 'Courier New', monospace; font-size: 0.95em; line-height: 1.6;
+                                 background: #f9fafb; resize: vertical;"
+                          placeholder="Start typing your strategic notes here...
+
+Examples:
+- Met with Dr. Smith (KOL, Emory) - interested in advisory board participation
+- UCB recruiter confirmed MSL opening in Atlanta - apply by March 15
+- Need to complete BCOP certification by Q2 2027
+- Informational call with Senior MSL at Genentech - key insight: they value congress strategy ownership
+"></textarea>
+
+                <div style="margin-top: 20px; padding: 15px; background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                    <strong>💡 Pro Tip:</strong> Use markdown-style formatting for organization:
+                    <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+                        <li><code>## Section Headers</code> for major topics</li>
+                        <li><code>- Bullet points</code> for lists</li>
+                        <li><code>[ ] Checkbox</code> for action items</li>
+                        <li><code>**Bold**</code> for emphasis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TNCP Council Tab -->
+        <div id="tncp" class="tab-content">
+            <div class="section">
+                <h2>🔬 The New Chemist's Perspective (TNCP) - Nobel Council</h2>
+                <div class="alert alert-info">
+                    <strong>Scientific Insight Engine:</strong> Consult 300+ Nobel laureates for perspectives on complex problems. Input your research question and select a laureate to receive their theoretical framework applied to your inquiry.
+                </div>
+
+                <div class="grid" style="grid-template-columns: 1fr 2fr; gap: 30px; margin-top: 30px;">
+                    <!-- Left Panel: Controls -->
+                    <div>
+                        <div class="card">
+                            <h3>Select Domain</h3>
+                            <div class="input-group">
+                                <label>Inquiry Domain</label>
+                                <select id="tncp-domain" onchange="updateLaureateOptions()">
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Medicine">Medicine</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Humanities">Humanities</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Select Council Member</label>
+                                <select id="tncp-laureate" size="10" style="height: 400px; font-size: 0.9em;">
+                                    <optgroup label="Physics: Quantum & Cosmos" id="physics-group">
+                                        <option value="Feynman">Richard Feynman (QED)</option>
+                                        <option value="Heisenberg">Werner Heisenberg (Uncertainty)</option>
+                                        <option value="Einstein">Albert Einstein (Relativity)</option>
+                                        <option value="Bohr">Niels Bohr (Atomic Structure)</option>
+                                        <option value="Dirac">Paul Dirac (Antimatter)</option>
+                                        <option value="Planck">Max Planck (Quanta)</option>
+                                    </optgroup>
+                                    <optgroup label="Chemistry: Molecules" id="chemistry-group" style="display:none;">
+                                        <option value="Pauling">Linus Pauling (Chemical Bond)</option>
+                                        <option value="Mullis">Kary Mullis (PCR)</option>
+                                        <option value="Zewail">Ahmed Zewail (Femtochemistry)</option>
+                                        <option value="Prigogine">Ilya Prigogine (Dissipative Structures)</option>
+                                    </optgroup>
+                                    <optgroup label="Medicine: Life Systems" id="medicine-group" style="display:none;">
+                                        <option value="Watson">James Watson (DNA)</option>
+                                        <option value="Crick">Francis Crick (DNA)</option>
+                                        <option value="Yamanaka">Shinya Yamanaka (Stem Cells)</option>
+                                        <option value="Kandel">Eric Kandel (Memory)</option>
+                                    </optgroup>
+                                    <optgroup label="Economics: Markets" id="economics-group" style="display:none;">
+                                        <option value="Nash">John Nash (Equilibria)</option>
+                                        <option value="Kahneman">Daniel Kahneman (Behavioral)</option>
+                                        <option value="Stiglitz">Joseph Stiglitz (Information)</option>
+                                    </optgroup>
+                                    <optgroup label="Humanities & Insights" id="humanities-group" style="display:none;">
+                                        <option value="Ishiguro">Kazuo Ishiguro (Memory/Lit)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 5px; font-size: 0.85em;">
+                                <strong>📚 300+ Nobel Laureates Available</strong><br>
+                                <em>Select domain to filter laureates</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel: Inquiry -->
+                    <div>
+                        <div class="card">
+                            <h3>Research Inquiry Protocol</h3>
+                            
+                            <div class="input-group">
+                                <label>Topic / Phenomenon</label>
+                                <input type="text" id="tncp-title" placeholder="e.g., Emergence of Order from Chaos" value="Therapeutic Target Validation in Oncology">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Context & Constraints</label>
+                                <textarea id="tncp-problem" rows="8" placeholder="Describe the system, constraints, and your specific question...">System: Cancer cell signaling pathways in solid tumors.
+Goal: Identify druggable targets with minimal resistance mechanisms.
+Constraint: Must maintain therapeutic window and avoid toxicity.
+Question: How can we predict which pathway nodes will respond to targeted inhibition?</textarea>
+                            </div>
+
+                            <button class="btn" onclick="consultCouncil()">
+                                <i class="fa-solid fa-bolt"></i> CONSULT THE COUNCIL
+                            </button>
+
+                            <div id="tncp-loader" style="display:none; text-align:center; margin-top:20px;">
+                                <div class="spinner" style="width:40px; height:40px; border:4px solid #f3f3f3; border-top:4px solid #1e3c72; border-radius:50%; animation:spin 1s linear infinite; display:inline-block;"></div>
+                                <p style="margin-top:10px; color:#666;">Consulting The Council...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="tncp-results" style="display:none; margin-top: 40px;">
+                    <h2 id="tncp-verdict-title" style="color:#1e3c72; border-bottom: 2px solid #1e3c72; padding-bottom: 10px;">
+                        <i class="fa-solid fa-gavel"></i> Council Verdict
+                    </h2>
+
+                    <!-- Visual Flow Diagram -->
+                    <div style="margin-top: 30px; margin-bottom: 30px; padding: 30px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <h3 style="text-align: center; color: #475569; margin-bottom: 25px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em;">
+                            Analysis Pipeline
+                        </h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; position: relative;">
+                            <!-- Connection Line -->
+                            <div style="position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: #cbd5e1; z-index: 0;"></div>
+                            
+                            <!-- Flow Nodes -->
+                            <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
+                                <div style="display: inline-block; background: white; border: 2px solid #cbd5e1; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <div style="background: #e0f2fe; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                        🔍
+                                    </div>
+                                    <div style="font-weight: bold; color: #1e293b; margin-bottom: 4px;">Input Parsing</div>
+                                    <div style="font-size: 0.8em; color: #64748b;">Semantic Analysis</div>
+                                </div>
+                            </div>
+                            
+                            <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
+                                <div style="display: inline-block; background: white; border: 2px solid #93c5fd; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <div style="background: #dbeafe; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                        🔬
+                                    </div>
+                                    <div style="font-weight: bold; color: #1e293b; margin-bottom: 4px;">Theoretical Lens</div>
+                                    <div style="font-size: 0.8em; color: #64748b;" id="flow-lens">Framework</div>
+                                </div>
+                            </div>
+                            
+                            <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
+                                <div style="display: inline-block; background: white; border: 2px solid #c4b5fd; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <div style="background: #ede9fe; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                        ∑
+                                    </div>
+                                    <div style="font-weight: bold; color: #1e293b; margin-bottom: 4px;">Formalism</div>
+                                    <div style="font-size: 0.8em; color: #64748b;">Math Model</div>
+                                </div>
+                            </div>
+                            
+                            <div style="flex: 1; text-align: center; position: relative; z-index: 1;">
+                                <div style="display: inline-block; background: white; border: 2px solid #86efac; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <div style="background: #dcfce7; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                                        ✓
+                                    </div>
+                                    <div style="font-weight: bold; color: #1e293b; margin-bottom: 4px;">Strategic Output</div>
+                                    <div style="font-size: 0.8em; color: #64748b;">Actionable Advice</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid" style="margin-top: 30px;">
+                        <div class="card full-width">
+                            <h3><i class="fa-solid fa-lightbulb"></i> Primary Insight</h3>
+                            <div id="tncp-insight" class="insight-box" style="background: #fdf2f4; border-left: 5px solid #1e3c72; padding: 20px; font-size: 1.1em; line-height: 1.6;"></div>
+                        </div>
+
+                        <!-- Strategy Card (NEW) -->
+                        <div class="card full-width" style="background: #f0fdf4; border-left: 4px solid #10b981;">
+                            <h3 style="color: #065f46;"><i class="fa-solid fa-chess-knight"></i> Strategic Recommendation</h3>
+                            <div id="tncp-strategy" style="color: #047857; font-weight: 500; font-size: 1.05em; line-height: 1.7;"></div>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-chart-line"></i> Visual Analysis</h3>
+                            <div id="tncp-chart" style="height: 300px;"></div>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-calculator"></i> Metrics</h3>
+                            <div id="tncp-metrics" style="display: flex; flex-direction: column; gap: 15px;"></div>
+                        </div>
+
+                        <div class="card full-width">
+                            <h3><i class="fa-solid fa-square-root-alt"></i> Mathematical Formalism</h3>
+                            <div id="tncp-math" style="font-family: 'Times New Roman', serif; font-size: 1.3rem; padding: 20px; text-align: center; background: #f9f9f9; border-radius: 5px;"></div>
+                            <div id="tncp-math-explanation" style="margin-top: 15px; line-height: 1.6; color: #555;"></div>
+                        </div>
+
+                        <div class="card full-width">
+                            <h3><i class="fa-solid fa-comment-dots"></i> Applied Answer to Your Problem</h3>
+                            <div id="tncp-general-answer" style="font-family: 'Georgia', serif; font-size: 1.05rem; line-height: 1.7; color: #333; padding: 15px; background: #f8f9fa; border-radius: 5px;"></div>
+                        </div>
+
+                        <div class="card full-width">
+                            <h3><i class="fa-solid fa-file-code"></i> Structured Output (JSON)</h3>
+                            <pre id="tncp-json" style="background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 5px; overflow-x: auto; font-size: 0.9em;"></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning" style="margin-top: 30px;">
+                    <strong>Disclaimer:</strong> TNCP responses represent algorithmic interpretations based on deterministic text parsing. They are designed for educational and heuristic exploration and do not constitute professional scientific advice. The frameworks are subjective interpretations by the system designers.
+                </div>
+            </div>
+        </div>
+
+        <!-- Comp Tracker Tab -->
+        <div id="comp" class="tab-content">
+            <div class="section">
+                <h2>Compensation Tracker & Negotiation Prep</h2>
+                
+                <h3>Current Package Breakdown</h3>
+                <div class="grid">
+                    <div class="card">
+                        <label>Base Salary</label>
+                        <input type="number" id="compBase" placeholder="e.g., 180000">
+                    </div>
+                    <div class="card">
+                        <label>Annual Bonus (%)</label>
+                        <input type="number" id="compBonus" placeholder="e.g., 20">
+                    </div>
+                    <div class="card">
+                        <label>Equity/RSUs (Annual)</label>
+                        <input type="number" id="compEquity" placeholder="e.g., 30000">
+                    </div>
+                    <div class="card">
+                        <label>Allowances (Car, etc.)</label>
+                        <input type="number" id="compAllowances" placeholder="e.g., 12000">
+                    </div>
+                </div>
+
+                <button class="btn" onclick="calculateTotalComp()">Calculate Total Comp</button>
+                
+                <div id="totalCompOutput" style="margin-top: 20px;"></div>
+
+                <h3>Path to $500K Visualization</h3>
+                <div class="card">
+                    <p><strong>Target:</strong> $500K Total Comp by 2032</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="compProgress" style="width: 0%;">0%</div>
+                    </div>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                        Based on current inputs. Update profile and comp details to track progress.
+                    </p>
+                </div>
+
+                <h3>Compensation Benchmarks (Glassdoor Data)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Typical Range</th>
+                            <th>90th Percentile</th>
+                            <th>Target Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MSL</td>
+                            <td>$154K - $279K</td>
+                            <td>~$365K</td>
+                            <td>2027-2028</td>
+                        </tr>
+                        <tr>
+                            <td>Senior MSL</td>
+                            <td>$230K - $320K</td>
+                            <td>~$380K</td>
+                            <td>2028-2029</td>
+                        </tr>
+                        <tr>
+                            <td>Associate Director, Medical Affairs</td>
+                            <td>$169K - $304K</td>
+                            <td>~$340K</td>
+                            <td>2029-2030</td>
+                        </tr>
+                        <tr>
+                            <td>Director, Medical Affairs</td>
+                            <td>$188K - $349K</td>
+                            <td>~$459K</td>
+                            <td>2030-2031</td>
+                        </tr>
+                        <tr>
+                            <td>Senior Director / Head of Medical</td>
+                            <td>$250K - $450K+</td>
+                            <td>$500K+</td>
+                            <td>2031-2032</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Compliant Add-On Income Pathways</h3>
+                <div class="alert alert-success">
+                    <strong>$50K-$150K Add-On Potential:</strong>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Adjunct teaching honoraria ($15K-$40K/year)</li>
+                        <li>IP/licensing from educational products/platforms ($20K-$60K/year)</li>
+                        <li>Consulting (conflict-cleared only) ($30K-$100K/year)</li>
+                    </ul>
+                    <em>Note: All add-ons require written COI disclosures and employer approval</em>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global data store
+        let profile = {};
+        let kolNetwork = [];
+
+        // Career Path Descriptions and Updates
+        function updateCareerPathOptions() {
+            const path = document.getElementById('careerPath').value;
+            const desc = document.getElementById('career-path-description');
+            
+            // Hide all path-specific fields
+            document.getElementById('industry-fields').style.display = 'none';
+            document.getElementById('retail-fields').style.display = 'none';
+            document.getElementById('hospital-fields').style.display = 'none';
+            
+            const descriptions = {
+                'industry': {
+                    text: '<strong>Industry Pharmacy Career Path:</strong> Focus on Medical Affairs, MSL roles, Clinical Development, Regulatory, and Pharmacovigilance. Target compensation: $150K-$600K+ depending on scope and seniority. This path emphasizes therapeutic expertise, KOL relationships, and evidence generation.',
+                    fields: 'industry-fields'
+                },
+                'retail': {
+                    text: '<strong>Retail/Community Pharmacy Career Path:</strong> From staff pharmacist to ownership or corporate leadership. Target compensation: $110K-$200K+ for clinical roles, ownership potential varies widely. This path emphasizes patient care, business operations, and clinical services expansion.',
+                    fields: 'retail-fields'
+                },
+                'hospital': {
+                    text: '<strong>Hospital/Health-System Pharmacy Career Path:</strong> Clinical specialization, residency training, and advancement to leadership roles. Target compensation: $120K-$250K+ for director-level positions. This path emphasizes clinical expertise, antimicrobial stewardship, and multidisciplinary collaboration.',
+                    fields: 'hospital-fields'
+                },
+                'specialty': {
+                    text: '<strong>Specialty Pharmacy Career Path:</strong> Focused on complex, high-cost medications (oncology, transplant, rare disease). Combines elements of retail and clinical pharmacy. Target compensation: $130K-$220K+. This path emphasizes patient adherence, prior authorizations, and clinical monitoring.',
+                    fields: 'retail-fields' // Use retail fields as base
+                }
+            };
+            
+            if (path && descriptions[path]) {
+                desc.innerHTML = descriptions[path].text;
+                desc.style.display = 'block';
+                document.getElementById(descriptions[path].fields).style.display = 'block';
+            } else {
+                desc.style.display = 'none';
+            }
+        }
+
+        // Tab Management
+        function openTab(tabName) {
+            const tabs = document.getElementsByClassName('tab-content');
+            const tabButtons = document.getElementsByClassName('tab');
+            
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Profile Functions
+        function saveProfile() {
+            const careerPath = document.getElementById('careerPath').value;
+            
+            if (!careerPath) {
+                alert('Please select a career path first!');
+                return;
+            }
+            
+            profile = {
+                careerPath: careerPath,
+                currentStage: document.getElementById('currentStage').value,
+                baseLocation: document.getElementById('baseLocation').value,
+                currentComp: document.getElementById('currentComp').value || 0,
+                targetComp: document.getElementById('targetComp').value || 0
+            };
+            
+            // Add path-specific fields
+            if (careerPath === 'industry') {
+                profile.therapyArea = document.getElementById('therapyArea').value;
+                profile.entryRole = document.getElementById('entryRole').value;
+            } else if (careerPath === 'retail' || careerPath === 'specialty') {
+                profile.retailSetting = document.getElementById('retailSetting').value;
+                profile.retailGoal = document.getElementById('retailGoal').value;
+            } else if (careerPath === 'hospital') {
+                profile.hospitalArea = document.getElementById('hospitalArea').value;
+                profile.hospitalGoal = document.getElementById('hospitalGoal').value;
+            }
+            
+            alert('✅ Profile saved! Click "Generate My Career Plan" to create your roadmap.');
+        }
+
+        function generateCareerPlan() {
+            if (!profile.careerPath) {
+                alert('Please save your profile first!');
+                return;
+            }
+
+            const output = document.getElementById('profileOutput');
+            output.style.display = 'block';
+            
+            let pathSpecific = '';
+            
+            if (profile.careerPath === 'industry') {
+                pathSpecific = `
+                    <strong>Therapy Area:</strong> ${profile.therapyArea}<br>
+                    <strong>Entry Goal:</strong> ${profile.entryRole}<br>
+                    <strong>Key Strategy:</strong> Build disease-state expertise, develop KOL relationships, create proof-of-work portfolio
+                `;
+            } else if (profile.careerPath === 'retail') {
+                pathSpecific = `
+                    <strong>Setting:</strong> ${profile.retailSetting}<br>
+                    <strong>Career Goal:</strong> ${profile.retailGoal}<br>
+                    <strong>Key Strategy:</strong> Develop MTM services, build patient base, pursue ownership or clinical specialization
+                `;
+            } else if (profile.careerPath === 'hospital') {
+                pathSpecific = `
+                    <strong>Practice Area:</strong> ${profile.hospitalArea}<br>
+                    <strong>Career Goal:</strong> ${profile.hospitalGoal}<br>
+                    <strong>Key Strategy:</strong> Complete residency training, build clinical expertise, publish outcomes, pursue leadership roles
+                `;
+            } else if (profile.careerPath === 'specialty') {
+                pathSpecific = `
+                    <strong>Setting:</strong> ${profile.retailSetting}<br>
+                    <strong>Focus:</strong> Specialty Pharmacy (high-touch, high-cost medications)<br>
+                    <strong>Key Strategy:</strong> Master prior authorization, develop adherence programs, build payer relationships
+                `;
+            }
+            
+            output.innerHTML = `
+                <h3>Your Career Strategy Summary</h3>
+                <div class="alert alert-success">
+                    <strong>Profile Confirmed</strong><br>
+                    <strong>Career Path:</strong> ${formatCareerPath(profile.careerPath)}<br>
+                    <strong>Stage:</strong> ${formatStage(profile.currentStage)}<br>
+                    <strong>Location:</strong> ${formatLocation(profile.baseLocation)}<br>
+                    ${pathSpecific}
+                </div>
+                
+                <h4>Next 7 Days Actions:</h4>
+                <ol style="margin-left: 20px;">
+                    ${getNextActions(profile.careerPath)}
+                </ol>
+
+                <h4>5-Year Roadmap Overview:</h4>
+                ${getRoadmapPreview(profile.careerPath)}
+            `;
+        }
+
+        function formatCareerPath(path) {
+            const paths = {
+                'industry': 'Industry Pharmacy (Medical Affairs/MSL)',
+                'retail': 'Retail/Community Pharmacy',
+                'hospital': 'Hospital/Health-System Pharmacy',
+                'specialty': 'Specialty Pharmacy'
+            };
+            return paths[path] || path;
+        }
+
+        function getNextActions(path) {
+            const actions = {
+                'industry': `
+                    <li>Navigate to "Career Timeline" tab and review the Medical Affairs 2026-2032 ladder</li>
+                    <li>Navigate to "Target Companies" tab and identify top 3 industry targets in your region</li>
+                    <li>Begin building your KOL list (aim for 10 initial targets in your therapy area)</li>
+                    <li>Start proof-of-work: Choose first disease-state dossier topic</li>
+                    <li>Join AMCP or DIA and attend local chapter meetings</li>
+                `,
+                'retail': `
+                    <li>Identify top 3 retail chains or independent pharmacies in your area</li>
+                    <li>Research MTM certification programs (APhA, AMCP)</li>
+                    <li>Begin building relationships with local prescribers</li>
+                    <li>If targeting ownership: research SBA loans and pharmacy valuations</li>
+                    <li>Join state pharmacy association and attend CE events</li>
+                `,
+                'hospital': `
+                    <li>Research PGY1/PGY2 residency programs in your target specialty</li>
+                    <li>Identify clinical coordinators at target hospitals for informational interviews</li>
+                    <li>Begin building case presentations and clinical interventions log</li>
+                    <li>Join ASHP and specialty organizations (ACCP, SIDP, HOPA, etc.)</li>
+                    <li>Start preparing for Board Certification (BCPS, BCOP, etc.)</li>
+                `,
+                'specialty': `
+                    <li>Research specialty pharmacy employers (Accredo, CVS Specialty, BrightRx)</li>
+                    <li>Identify disease states to specialize in (oncology, transplant, rare disease)</li>
+                    <li>Learn prior authorization and appeals processes</li>
+                    <li>Research NASP certification for specialty pharmacy</li>
+                    <li>Network with specialty pharmacists on LinkedIn</li>
+                `
+            };
+            return actions[path] || '<li>Define your specific career objectives</li>';
+        }
+
+        function getRoadmapPreview(path) {
+            const roadmaps = {
+                'industry': `
+                    <p><strong>Year 1 (2027):</strong> Entry as MSL or Medical Information → Target $160K-$220K</p>
+                    <p><strong>Year 2-3 (2028-2029):</strong> Senior MSL or Medical Advisor → Target $220K-$300K</p>
+                    <p><strong>Year 4-5 (2030-2031):</strong> Associate Director/Director → Target $280K-$450K</p>
+                    <p><strong>Year 6+ (2032+):</strong> Senior Director/VP Medical Affairs → Target $400K-$600K+</p>
+                `,
+                'retail': `
+                    <p><strong>Year 1 (2027):</strong> Staff Pharmacist → Target $110K-$135K</p>
+                    <p><strong>Year 2-3 (2028-2029):</strong> Pharmacy Manager (PIC) or MTM Specialist → Target $125K-$155K</p>
+                    <p><strong>Year 4-5 (2030-2031):</strong> District Manager or Pharmacy Owner → Target $145K-$200K+</p>
+                    <p><strong>Year 6+ (2032+):</strong> Regional Director or Multi-location Owner → Target $180K-$300K+</p>
+                `,
+                'hospital': `
+                    <p><strong>Year 1 (2027):</strong> PGY1 Residency → $50K-$60K (training)</p>
+                    <p><strong>Year 2 (2028):</strong> PGY2 Residency or Clinical Specialist → $55K-$140K</p>
+                    <p><strong>Year 3-4 (2029-2030):</strong> Clinical Coordinator or Clinical Specialist → Target $135K-$165K</p>
+                    <p><strong>Year 5+ (2031+):</strong> Pharmacy Manager/Director → Target $155K-$220K+</p>
+                `,
+                'specialty': `
+                    <p><strong>Year 1 (2027):</strong> Specialty Pharmacy Pharmacist → Target $120K-$145K</p>
+                    <p><strong>Year 2-3 (2028-2029):</strong> Senior Specialty Pharmacist or Clinical Coordinator → Target $135K-$165K</p>
+                    <p><strong>Year 4-5 (2030-2031):</strong> Specialty Pharmacy Manager → Target $150K-$190K</p>
+                    <p><strong>Year 6+ (2032+):</strong> Director of Specialty Pharmacy → Target $175K-$220K+</p>
+                `
+            };
+            return roadmaps[path] || '<p>Custom roadmap will be generated based on your selections.</p>';
+        }
+
+        function formatStage(stage) {
+            const stages = {
+                'p3': 'P3 Student (2025 grad)',
+                'p4': 'P4 Student (2026 grad)',
+                'resident': 'Pharmacy Resident',
+                'fellow': 'Fellow',
+                'practicing': 'Practicing Pharmacist'
+            };
+            return stages[stage] || stage;
+        }
+
+        function formatLocation(location) {
+            const locations = {
+                'atlanta': 'Atlanta, GA',
+                'other-ga': 'Georgia (outside Atlanta)',
+                'indianapolis': 'Indianapolis, IN',
+                'remote': 'Remote (GA-based)'
+            };
+            return locations[location] || location;
+        }
+
+        // Timeline Generation
+        function generateTimeline() {
+            const timeline = document.getElementById('careerTimeline');
+            const careerPath = profile.careerPath || 'industry';
+            
+            let timelineData = [];
+            
+            if (careerPath === 'industry') {
+                timelineData = getIndustryTimeline();
+            } else if (careerPath === 'retail') {
+                timelineData = getRetailTimeline();
+            } else if (careerPath === 'hospital') {
+                timelineData = getHospitalTimeline();
+            } else if (careerPath === 'specialty') {
+                timelineData = getSpecialtyTimeline();
+            }
+
+            timeline.innerHTML = timelineData.map(item => `
+                <div class="timeline-item">
+                    <h4>${item.year}: ${item.title}</h4>
+                    <p><strong>Objective:</strong> ${item.objectives}</p>
+                    <p><strong>Key Results:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        ${item.krs.map(kr => `<li>${kr}</li>`).join('')}
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>Success Marker:</strong> ${item.promotionTrigger}</p>
+                    <span class="comp">Target Comp: ${item.comp}</span>
+                </div>
+            `).join('');
+        }
+
+        function getIndustryTimeline() {
+            return [
+                {
+                    year: '2026 Q1-Q2',
+                    title: 'Positioning Phase',
+                    objectives: 'Become offer-ready for Field Medical/Medical Affairs',
+                    krs: [
+                        'Produce 2 therapeutic dossiers (oncology/rare disease)',
+                        'Build 2 executive briefs (congress insights, evidence gap plan)',
+                        'Create KOL map (30 targets) + outreach plan'
+                    ],
+                    comp: 'N/A (Pre-employment)',
+                    promotionTrigger: 'Your materials look like an MSL already wrote them'
+                },
+                {
+                    year: '2027-2028',
+                    title: 'Year 1: MSL Execution Excellence',
+                    objectives: 'Be top-quartile MSL within 2 quarters',
+                    krs: [
+                        '8-12 KOL relationships producing repeatable insights',
+                        '2 "insight → decision" wins',
+                        'Deliver 1 internal training (disease state/congress debrief)'
+                    ],
+                    comp: '$160K - $220K',
+                    promotionTrigger: 'Manager trusts you with hardest accounts and asks you to train others'
+                },
+                {
+                    year: '2028-2029',
+                    title: 'Year 2: Senior Scope',
+                    objectives: 'Move to Senior MSL or HQ Medical Advisor',
+                    krs: [
+                        'Lead 1 cross-functional initiative (ad boards, congress strategy)',
+                        'Mentor/onboard 1 new MSL; build reusable playbook',
+                        'Teach 1 module/term + build 6-10 week syllabus outline'
+                    ],
+                    comp: '$220K - $300K',
+                    promotionTrigger: 'You run programs, not just calls; work scales across org'
+                },
+                {
+                    year: '2029-2030',
+                    title: 'Year 3: Associate Director',
+                    objectives: 'Secure Associate Director title or leadership scope',
+                    krs: [
+                        'Own portfolio: budget line, vendor relationship, or multi-region program',
+                        'Present quarterly to senior medical leadership',
+                        'Build your "Director dossier" (impact metrics, initiatives led)'
+                    ],
+                    comp: '$260K - $380K',
+                    promotionTrigger: 'You are default owner for strategic initiatives'
+                },
+                {
+                    year: '2030-2031',
+                    title: 'Year 4: Director',
+                    objectives: 'Hit $300K+ through Director scope',
+                    krs: [
+                        'Formal people leadership OR enterprise program leadership with budget',
+                        '2 external credibility moves (panels, invited talks, publications)',
+                        'Negotiate equity refresh / retention package'
+                    ],
+                    comp: '$300K - $450K',
+                    promotionTrigger: 'You are accountable for outcomes, not tasks'
+                },
+                {
+                    year: '2031-2032',
+                    title: 'Year 5: Senior Director / VP',
+                    objectives: 'Achieve $400K-$600K+ total earnings',
+                    krs: [
+                        'Director/Sr Director at equity-meaningful company OR global scope',
+                        'Faculty + IP: 1 repeatable paid teaching product',
+                        'Maintain clinical credibility through PRN practice or consulting'
+                    ],
+                    comp: '$400K - $600K+',
+                    promotionTrigger: 'Equity refresh + bonus + scope + add-ons = $500K+'
+                }
+            ];
+        }
+
+        function getRetailTimeline() {
+            return [
+                {
+                    year: '2026-2027',
+                    title: 'Entry & Foundation',
+                    objectives: 'Establish yourself as a competent staff pharmacist',
+                    krs: [
+                        'Complete onboarding and workflow mastery',
+                        'Build patient relationships and community presence',
+                        'Achieve metrics goals (wait times, accuracy, immunizations)',
+                        'Complete MTM certification (if pursuing clinical services)'
+                    ],
+                    comp: '$110K - $135K',
+                    promotionTrigger: 'Consistently meeting performance metrics; positive patient feedback'
+                },
+                {
+                    year: '2028',
+                    title: 'Year 2: Specialization or Leadership Track',
+                    objectives: 'Become Pharmacy Manager (PIC) or MTM Specialist',
+                    krs: [
+                        'If PIC track: Complete management training and P&L responsibility',
+                        'If clinical track: Build MTM patient panel (50+ patients)',
+                        'Launch clinical service (diabetes management, anticoagulation)',
+                        'Mentor new pharmacists or technicians'
+                    ],
+                    comp: '$125K - $155K',
+                    promotionTrigger: 'Successfully managing store operations or generating MTM revenue'
+                },
+                {
+                    year: '2029-2030',
+                    title: 'Year 3-4: District Leadership or Business Ownership',
+                    objectives: 'Move to multi-store oversight or prepare for ownership',
+                    krs: [
+                        'If corporate: Become District/Area Manager (5-10 stores)',
+                        'If ownership: Secure SBA loan and identify pharmacy for purchase',
+                        'Build relationships with payers for preferred network status',
+                        'Develop clinical protocols for chronic disease management'
+                    ],
+                    comp: '$145K - $200K',
+                    promotionTrigger: 'Multi-store success or securing pharmacy purchase agreement'
+                },
+                {
+                    year: '2031-2032',
+                    title: 'Year 5-6: Regional Director or Multi-Location Owner',
+                    objectives: 'Achieve top-level retail pharmacy compensation',
+                    krs: [
+                        'If corporate: Regional Director (25+ stores)',
+                        'If owner: Expand to 2-3 locations or highly profitable single location',
+                        'Develop additional revenue streams (compounding, immunization clinics)',
+                        'Consider consulting for pharmacy startups'
+                    ],
+                    comp: '$180K - $300K+',
+                    promotionTrigger: 'Regional impact on profitability or ownership equity value $500K+'
+                }
+            ];
+        }
+
+        function getHospitalTimeline() {
+            return [
+                {
+                    year: '2026-2027',
+                    title: 'PGY1 Residency',
+                    objectives: 'Build clinical foundation across practice areas',
+                    krs: [
+                        'Complete 5-6 clinical rotations (ICU, ID, oncology, cardiology, etc.)',
+                        'Present at regional residency conference',
+                        'Complete longitudinal project with measurable outcome',
+                        'Prepare for PGY2 applications or clinical specialist positions'
+                    ],
+                    comp: '$50K - $60K',
+                    promotionTrigger: 'Strong rotation evaluations and project presentation'
+                },
+                {
+                    year: '2027-2028',
+                    title: 'PGY2 Residency or Clinical Specialist',
+                    objectives: 'Develop specialty expertise',
+                    krs: [
+                        'If PGY2: Deep dive in specialty (critical care, oncology, ID, cardiology)',
+                        'If specialist: Build clinical service and attend team rounds',
+                        'Pursue board certification (BCPS, BCOP, BCCP)',
+                        'Publish case reports or QI projects'
+                    ],
+                    comp: '$55K - $140K',
+                    promotionTrigger: 'Board certification achieved; recognized as clinical expert'
+                },
+                {
+                    year: '2028-2030',
+                    title: 'Year 2-4: Clinical Coordinator or Faculty',
+                    objectives: 'Establish leadership in clinical program',
+                    krs: [
+                        'Become clinical coordinator for specialty service',
+                        'Develop protocols and order sets',
+                        'Precept residents and students',
+                        'Present at national meetings (ASHP Midyear, ACCP, specialty conferences)'
+                    ],
+                    comp: '$135K - $165K',
+                    promotionTrigger: 'Service line growth metrics; precepting excellence'
+                },
+                {
+                    year: '2030-2032',
+                    title: 'Year 4-6: Pharmacy Manager or Director',
+                    objectives: 'Lead pharmacy department operations',
+                    krs: [
+                        'Manage pharmacy budget ($5M-$50M+ depending on hospital size)',
+                        'Oversee 20-100+ FTEs (pharmacists, technicians)',
+                        'Chair P&T committee',
+                        'Implement enterprise-wide clinical programs'
+                    ],
+                    comp: '$155K - $220K+',
+                    promotionTrigger: 'Successfully managing complex operations; cost savings achieved'
+                }
+            ];
+        }
+
+        function getSpecialtyTimeline() {
+            return [
+                {
+                    year: '2026-2027',
+                    title: 'Entry to Specialty Pharmacy',
+                    objectives: 'Master specialty pharmacy operations',
+                    krs: [
+                        'Learn specialty drug distribution and REMS programs',
+                        'Master prior authorization and appeals processes',
+                        'Build relationships with specialty prescribers',
+                        'Complete disease-state certifications (oncology, transplant, etc.)'
+                    ],
+                    comp: '$120K - $145K',
+                    promotionTrigger: 'High patient satisfaction scores; PA approval rates >80%'
+                },
+                {
+                    year: '2028-2029',
+                    title: 'Year 2-3: Senior Specialty Pharmacist',
+                    objectives: 'Become clinical expert in disease states',
+                    krs: [
+                        'Manage high-complexity patient panel (50+ patients)',
+                        'Develop patient adherence programs',
+                        'Build payer relationships for coverage optimization',
+                        'Achieve NASP specialty pharmacy certification'
+                    ],
+                    comp: '$135K - $165K',
+                    promotionTrigger: 'Adherence rates >90%; revenue generation per patient optimized'
+                },
+                {
+                    year: '2030-2031',
+                    title: 'Year 4-5: Specialty Pharmacy Manager',
+                    objectives: 'Lead specialty pharmacy operations',
+                    krs: [
+                        'Manage team of 5-15 specialty pharmacists',
+                        'Oversee $10M-$50M+ in specialty drug revenue',
+                        'Develop clinical protocols for new specialty drugs',
+                        'Partner with manufacturers on hub services'
+                    ],
+                    comp: '$150K - $190K',
+                    promotionTrigger: 'Team performance metrics; revenue growth year-over-year'
+                },
+                {
+                    year: '2031-2032',
+                    title: 'Year 5-6: Director of Specialty Pharmacy',
+                    objectives: 'Strategic leadership of specialty services',
+                    krs: [
+                        'Expand specialty pharmacy across multiple sites',
+                        'Negotiate manufacturer partnerships and rebates',
+                        'Present outcomes data at national conferences',
+                        'Consider consulting or advisory roles'
+                    ],
+                    comp: '$175K - $220K+',
+                    promotionTrigger: 'Profitable specialty division; national recognition'
+                }
+            ];
+        }
+
+        // OKR Functions
+        function loadQuarterOKRs() {
+            const quarter = document.getElementById('quarterSelect').value;
+            const content = document.getElementById('okrContent');
+            
+            const okrData = {
+                '2026-q1': {
+                    title: '2026 Q1-Q2: Positioning & Proof-of-Work',
+                    objective: 'Become "offer-ready" for Field Medical/Medical Affairs',
+                    krs: [
+                        'KR1: Produce 2 therapeutic dossiers (oncology + rare disease)',
+                        'KR2: Build 2 executive briefs (congress insights + evidence gap plan)',
+                        'KR3: Create KOL map (30 targets) + outreach plan + tracking sheet',
+                        'KR4: Draft one-page value thesis (brand, differentiation, outcomes)'
+                    ],
+                    deliverables: [
+                        'Disease-State Dossier #1 (use Proof of Work tab)',
+                        'Disease-State Dossier #2 (use Proof of Work tab)',
+                        'Congress Insights Brief template',
+                        'KOL tracking spreadsheet (use KOL Mapper tab)',
+                        'Personal value proposition document'
+                    ]
+                },
+                '2026-q3': {
+                    title: '2026 Q3-Q4: Deal Flow & Conversion',
+                    objective: 'Secure 2027 landing (MSL offer or conversion-strong fellowship)',
+                    krs: [
+                        'KR1: 25-40 informational calls; 8-12 formal interviews; 2-3 final rounds',
+                        'KR2: Identify 1 faculty sponsor (academic institution) for 2027 teaching affiliation',
+                        'KR3: Portfolio folder recruiter-ready (sanitized writing + slides + insights)'
+                    ],
+                    deliverables: [
+                        'Interview tracking spreadsheet (company, role, stage, contacts)',
+                        'Faculty sponsor outreach template',
+                        'Portfolio presentation deck',
+                        'STAR story bank for behavioral interviews'
+                    ]
+                },
+                '2027-q1': {
+                    title: '2027 Q1-Q2: Lock the Start, Formalize the Stack',
+                    objective: 'Enter graduation with contracts and boundaries set',
+                    krs: [
+                        'KR1: Signed offer for MSL/Medical Affairs OR fellowship with conversion pathway',
+                        'KR2: Written approvals/disclosures plan drafted (employer + institution + school)',
+                        'KR3: PRN pharmacist plan defined (site, onboarding timeline, monthly cap)'
+                    ],
+                    deliverables: [
+                        'Employment contract review checklist',
+                        'COI disclosure templates',
+                        'PRN pharmacy site agreement',
+                        'Weekly cadence calendar (stakeholder touches, network, portfolio)'
+                    ]
+                }
+            };
+
+            const data = okrData[quarter] || {
+                title: 'Select a quarter to view OKRs',
+                objective: '',
+                krs: [],
+                deliverables: []
+            };
+
+            content.innerHTML = `
+                <div class="section">
+                    <h3>${data.title}</h3>
+                    <div class="alert alert-info">
+                        <strong>Objective:</strong> ${data.objective}
+                    </div>
+                    
+                    ${data.krs.length > 0 ? `
+                        <h4>Key Results</h4>
+                        <ul style="margin-left: 20px;">
+                            ${data.krs.map(kr => `<li>${kr}</li>`).join('')}
+                        </ul>
+                    ` : ''}
+
+                    ${data.deliverables.length > 0 ? `
+                        <h4>Deliverables Checklist</h4>
+                        <ul class="checklist">
+                            ${data.deliverables.map(d => `<li><input type="checkbox"> ${d}</li>`).join('')}
+                        </ul>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // KOL Functions
+        function addKOL() {
+            const kol = {
+                name: document.getElementById('kolName').value,
+                institution: document.getElementById('kolInstitution').value,
+                specialty: document.getElementById('kolSpecialty').value,
+                tier: document.getElementById('kolTier').value,
+                objective: document.getElementById('kolObjective').value,
+                insight: document.getElementById('kolInsight').value,
+                dateAdded: new Date().toLocaleDateString()
+            };
+
+            if (!kol.name || !kol.institution) {
+                alert('Please fill in at least KOL name and institution');
+                return;
+            }
+
+            kolNetwork.push(kol);
+            displayKOLs();
+            
+            // Clear form
+            document.getElementById('kolName').value = '';
+            document.getElementById('kolInstitution').value = '';
+            document.getElementById('kolSpecialty').value = '';
+            document.getElementById('kolInsight').value = '';
+        }
+
+        function displayKOLs() {
+            const kolList = document.getElementById('kolList');
+            
+            if (kolNetwork.length === 0) {
+                kolList.innerHTML = '<p style="color: #666; font-style: italic;">No KOLs added yet. Add your first KOL above.</p>';
+                return;
+            }
+
+            kolList.innerHTML = kolNetwork.map((kol, index) => `
+                <div class="kol-card">
+                    <h4>${kol.name}</h4>
+                    <span class="kol-tier tier-${kol.tier}">Tier ${kol.tier}</span>
+                    <p style="margin-top: 10px;"><strong>${kol.institution}</strong> | ${kol.specialty}</p>
+                    <p style="margin-top: 5px; font-size: 0.9em; color: #666;">
+                        <strong>Objective:</strong> ${kol.objective}
+                    </p>
+                    ${kol.insight ? `
+                        <p style="margin-top: 10px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                            <strong>Latest Insight:</strong><br>
+                            ${kol.insight}
+                        </p>
+                    ` : ''}
+                    <p style="margin-top: 10px; font-size: 0.85em; color: #999;">Added: ${kol.dateAdded}</p>
+                    <button class="btn" style="margin-top: 10px; padding: 8px 15px; font-size: 0.9em;" onclick="removeKOL(${index})">Remove</button>
+                </div>
+            `).join('');
+        }
+
+        function removeKOL(index) {
+            if (confirm('Remove this KOL from your network?')) {
+                kolNetwork.splice(index, 1);
+                displayKOLs();
+            }
+        }
+
+        function generateEmailHook() {
+            const publication = document.getElementById('kolPublication').value;
+            if (!publication) {
+                alert('Please enter a recent publication or work');
+                return;
+            }
+
+            const output = document.getElementById('emailHookOutput');
+            output.style.display = 'block';
+            
+            output.innerHTML = `
+                <h4>Generated Email Template</h4>
+                <div style="background: white; padding: 15px; border-radius: 5px; margin-top: 10px;">
+                    <p><strong>Subject:</strong> Question about your recent work on ${publication}</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Body:</strong></p>
+                    <p style="margin-top: 10px;">
+                    Dear Dr. [Name],<br><br>
+                    
+                    I recently read your work on ${publication} and was struck by [specific insight from their work]. Your approach to [specific methodology or finding] raises an important question about [relevant clinical/scientific question].<br><br>
+                    
+                    I'm a PharmD with a focus in [your therapy area] and am currently exploring [specific scientific question related to their work]. I'd value your perspective on [1-2 sentence specific question].<br><br>
+                    
+                    Would you have 15-20 minutes for a brief call in the coming weeks? I'm happy to work around your schedule.<br><br>
+                    
+                    Best regards,<br>
+                    [Your Name]<br>
+                    [Your Credentials]
+                    </p>
+                </div>
+                
+                <div class="alert alert-warning" style="margin-top: 15px;">
+                    <strong>Key Principles:</strong>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Lead with THEIR work, not your drug/company</li>
+                        <li>Ask a genuine scientific question</li>
+                        <li>Be specific about what you read</li>
+                        <li>Request a reasonable time commitment</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function generateKOLReport() {
+            if (kolNetwork.length === 0) {
+                alert('No KOLs in your network yet. Add some first!');
+                return;
+            }
+
+            const tierCounts = {1: 0, 2: 0, 3: 0};
+            kolNetwork.forEach(kol => tierCounts[kol.tier]++);
+
+            const report = `
+                <div class="section">
+                    <h3>KOL Network Insights Report</h3>
+                    
+                    <div class="alert alert-success">
+                        <strong>Network Summary:</strong><br>
+                        Total KOLs: ${kolNetwork.length}<br>
+                        Tier 1 (Global Leaders): ${tierCounts[1]}<br>
+                        Tier 2 (Regional Experts): ${tierCounts[2]}<br>
+                        Tier 3 (Local Influencers): ${tierCounts[3]}
+                    </div>
+
+                    <h4>Key Insights by Tier</h4>
+                    ${Object.keys(tierCounts).map(tier => {
+                        const tierKOLs = kolNetwork.filter(k => k.tier == tier);
+                        const insights = tierKOLs.filter(k => k.insight).length;
+                        
+                        return `
+                            <div class="card" style="margin-bottom: 15px;">
+                                <h4>Tier ${tier} Analysis</h4>
+                                <p>KOLs: ${tierKOLs.length} | Documented Insights: ${insights}</p>
+                                ${insights > 0 ? `
+                                    <p style="margin-top: 10px;"><strong>Recent Insights:</strong></p>
+                                    ${tierKOLs.filter(k => k.insight).slice(0, 3).map(k => `
+                                        <p style="padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                                            <strong>${k.name}:</strong> ${k.insight.substring(0, 150)}...
+                                        </p>
+                                    `).join('')}
+                                ` : '<p style="color: #666; font-style: italic;">No insights documented yet</p>'}
+                            </div>
+                        `;
+                    }).join('')}
+
+                    <div class="alert alert-info">
+                        <strong>Promotion Lever Status:</strong><br>
+                        Target: 6-10 KOL relationships with documented insights<br>
+                        Current: ${kolNetwork.filter(k => k.insight).length} KOLs with insights<br>
+                        ${kolNetwork.filter(k => k.insight).length >= 6 ? 
+                            '✅ Target met! Focus on quality and insight-to-action conversion.' :
+                            '⚠️ Continue building relationships and documenting insights.'}
+                    </div>
+                </div>
+            `;
+
+            alert('Generating KOL Insights Report...');
+            // In a real app, this would open a modal or new view
+            console.log(report);
+        }
+
+        // Dossier Generator
+        function generateDossierOutline() {
+            const type = document.getElementById('dossierType').value;
+            const disease = document.getElementById('diseaseType').value;
+            const target = document.getElementById('targetBiomarker').value;
+
+            if (!disease) {
+                alert('Please enter a disease type');
+                return;
+            }
+
+            const output = document.getElementById('dossierOutput');
+            output.style.display = 'block';
+
+            const outline = `
+                <h3>Disease-State Dossier Outline: ${disease}</h3>
+                <p style="margin-bottom: 15px;"><strong>Target/Biomarker:</strong> ${target || 'To be defined'}</p>
+
+                <div style="background: white; padding: 20px; border-radius: 8px;">
+                    <h4>1. Executive Summary (1 page)</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Disease burden and unmet need</li>
+                        <li>Treatment goals</li>
+                        <li>What's changing in the landscape</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">2. Epidemiology & Patient Journey</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Incidence/prevalence of ${disease}</li>
+                        <li>Patient segmentation</li>
+                        <li>Referral pathways and key decision points</li>
+                        <li>Diagnostic odyssey (if rare disease)</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">3. Pathophysiology & Biomarkers</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Role of ${target || '[Target/Biomarker]'} in disease progression</li>
+                        <li>Driver mutation vs passenger (if oncology)</li>
+                        <li>Diagnostic workup and testing guidelines</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">4. Current Standard of Care</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Treatment algorithm (1L, 2L, 3L+)</li>
+                        <li>NCCN/ESMO/guideline landscape</li>
+                        <li>Where current outcomes fail (PFS rates, toxicity, resistance)</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">5. Key Clinical Evidence Synopsis</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Pivotal trials: Study design, endpoints, efficacy, safety</li>
+                        <li>Competitor landscape (2-3 direct competitors)</li>
+                        <li>ORR, PFS, OS comparisons (if applicable)</li>
+                        <li>Study limitations</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">6. Emerging Landscape & Evidence Gaps</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Pipeline therapies</li>
+                        <li>What questions remain</li>
+                        <li>What data would change practice</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">7. Stakeholder Map</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>HCP decision-makers</li>
+                        <li>Payer considerations</li>
+                        <li>Patient advocacy groups</li>
+                        <li>Access and reimbursement landscape</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">8. Medical Affairs Insight Prompts</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Field discussion themes (compliant, non-promotional)</li>
+                        <li>Key intelligence questions (KIQs)</li>
+                        <li>Insight capture taxonomy</li>
+                    </ul>
+
+                    <h4 style="margin-top: 20px;">9. References</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>[Placeholder for clinical trial citations]</li>
+                        <li>[Placeholder for guideline references]</li>
+                        <li>[Placeholder for epidemiology sources]</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-warning" style="margin-top: 20px;">
+                    <strong>Next Steps:</strong>
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li>Research each section systematically</li>
+                        <li>Maintain scientific balance (no promotional language)</li>
+                        <li>Include limitations and uncertainties</li>
+                        <li>Add proper citations (do not fabricate)</li>
+                        <li>End with "So What / Now What" 5-10 bullets</li>
+                    </ol>
+                </div>
+            `;
+
+            output.innerHTML = outline;
+        }
+
+        // Brief Generator
+        function generateBriefOutline() {
+            const type = document.getElementById('briefType').value;
+            const context = document.getElementById('briefContext').value;
+
+            if (!context) {
+                alert('Please enter context');
+                return;
+            }
+
+            const output = document.getElementById('briefOutput');
+            output.style.display = 'block';
+
+            let outline = '';
+
+            if (type === 'congress') {
+                outline = `
+                    <h3>Congress Insights Brief Template</h3>
+                    <p><strong>Congress:</strong> ${context}</p>
+
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin-top: 15px;">
+                        <h4>1. Executive Summary (BLUF - Bottom Line Up Front)</h4>
+                        <p style="margin-left: 20px; color: #666;">
+                            In 3 bullet points, summarize:
+                        </p>
+                        <ul style="margin-left: 40px;">
+                            <li>Single biggest data release and how it changes the market</li>
+                            <li>Key strategic implications for our product/portfolio</li>
+                            <li>Recommended actions</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">2. Key Data Release Analysis</h4>
+                        <p style="margin-left: 20px;">For each major study/presentation:</p>
+                        <ul style="margin-left: 40px;">
+                            <li><strong>Study Name:</strong> [Insert]</li>
+                            <li><strong>The Data:</strong> Primary endpoint (PFS, OS, ORR) vs Control, p-value</li>
+                            <li><strong>The "So What?":</strong> Does this displace SOC? Define a new niche?</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">3. Top 5-7 Insights</h4>
+                        <p style="margin-left: 20px;">For each insight:</p>
+                        <ul style="margin-left: 40px;">
+                            <li><strong>Observation:</strong> What was presented/discussed</li>
+                            <li><strong>Implication:</strong> What does this mean for practice/market</li>
+                            <li><strong>Recommended Action:</strong> What should we do</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">4. Competitor Activity</h4>
+                        <ul style="margin-left: 40px;">
+                            <li>Booth activity and buzz</li>
+                            <li>Unexpected safety signals</li>
+                            <li>Pipeline announcements</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">5. Evidence Gaps & Proposed Actions</h4>
+                        <ul style="margin-left: 40px;">
+                            <li>What questions remain unanswered</li>
+                            <li>RWE opportunities</li>
+                            <li>Publication planning needs</li>
+                            <li>Medical education priorities</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">6. Risks/Uncertainties</h4>
+                        <ul style="margin-left: 40px;">
+                            <li>What would disconfirm our strategy</li>
+                            <li>Potential regulatory concerns</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">7. One-Slide Summary</h4>
+                        <p style="margin-left: 20px; color: #666;">
+                            Bullets only, ready for executive presentation
+                        </p>
+                    </div>
+                `;
+            } else {
+                outline = `
+                    <h3>Medical Response (SRD) Template</h3>
+                    <p><strong>Inquiry:</strong> ${context}</p>
+
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin-top: 15px;">
+                        <h4>1. Summary Statement</h4>
+                        <p style="margin-left: 20px; color: #666;">
+                            Example: "[Drug X] is indicated for [Indication]. The use in [Population Y] is not approved by the FDA. The following clinical data is available for your review..."
+                        </p>
+
+                        <h4 style="margin-top: 20px;">2. Background</h4>
+                        <ul style="margin-left: 40px;">
+                            <li>What is known about the question</li>
+                            <li>Clinical context and rationale</li>
+                            <li>Approved indications</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">3. Clinical Evidence Table</h4>
+                        <table style="margin-left: 20px; margin-top: 10px; width: 90%;">
+                            <thead>
+                                <tr>
+                                    <th>Study</th>
+                                    <th>Design</th>
+                                    <th>N</th>
+                                    <th>Dosing</th>
+                                    <th>Key Results</th>
+                                    <th>Safety</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[Study A]</td>
+                                    <td>[RCT/Observ]</td>
+                                    <td>[Sample]</td>
+                                    <td>[Dose]</td>
+                                    <td>[Primary EP]</td>
+                                    <td>[Key AEs]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4 style="margin-top: 20px;">4. Study Limitations</h4>
+                        <ul style="margin-left: 40px;">
+                            <li>Small sample size</li>
+                            <li>Retrospective analysis</li>
+                            <li>Single-arm study</li>
+                            <li>Short follow-up</li>
+                            <li>[Other relevant limitations]</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">5. Safety Considerations</h4>
+                        <ul style="margin-left: 40px;">
+                            <li>Known adverse events</li>
+                            <li>Drug interactions</li>
+                            <li>Monitoring requirements</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">6. Conclusion (Neutral)</h4>
+                        <p style="margin-left: 20px; color: #666;">
+                            Balanced summary without promotional language
+                        </p>
+
+                        <h4 style="margin-top: 20px;">7. Next Evidence Needs</h4>
+                        <ul style="margin-left: 40px;">
+                            <li>Randomized controlled trial</li>
+                            <li>Long-term safety data</li>
+                            <li>Head-to-head comparison</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">8. References</h4>
+                        <p style="margin-left: 20px; color: #666;">
+                            [Citation placeholders - do not fabricate]
+                        </p>
+                    </div>
+
+                    <div class="alert alert-warning" style="margin-top: 20px;">
+                        <strong>Compliance Reminders:</strong>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Maintain scientific balance</li>
+                            <li>No promotional claims</li>
+                            <li>Include all limitations</li>
+                            <li>Clearly state off-label status</li>
+                            <li>Do not provide patient-specific medical advice</li>
+                        </ul>
+                    </div>
+                `;
+            }
+
+            output.innerHTML = outline;
+        }
+
+        // Compensation Functions
+        function calculateTotalComp() {
+            const base = parseFloat(document.getElementById('compBase').value) || 0;
+            const bonusPct = parseFloat(document.getElementById('compBonus').value) || 0;
+            const equity = parseFloat(document.getElementById('compEquity').value) || 0;
+            const allowances = parseFloat(document.getElementById('compAllowances').value) || 0;
+
+            const bonus = base * (bonusPct / 100);
+            const total = base + bonus + equity + allowances;
+
+            const output = document.getElementById('totalCompOutput');
+            output.innerHTML = `
+                <div class="card">
+                    <h3>Total Compensation Breakdown</h3>
+                    <table>
+                        <tr>
+                            <td><strong>Base Salary</strong></td>
+                            <td>$${base.toLocaleString()}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Annual Bonus (${bonusPct}%)</strong></td>
+                            <td>$${bonus.toLocaleString()}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Equity/RSUs</strong></td>
+                            <td>$${equity.toLocaleString()}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Allowances</strong></td>
+                            <td>$${allowances.toLocaleString()}</td>
+                        </tr>
+                        <tr style="border-top: 2px solid #1e3c72;">
+                            <td><strong>TOTAL COMP</strong></td>
+                            <td><strong>$${total.toLocaleString()}</strong></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="card" style="margin-top: 20px;">
+                    <h4>Progress to $500K Goal</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${Math.min((total / 500000) * 100, 100)}%;">
+                            ${Math.round((total / 500000) * 100)}%
+                        </div>
+                    </div>
+                    <p style="margin-top: 10px;">
+                        ${total >= 500000 ? 
+                            '🎉 <strong>Goal achieved!</strong> Consider next-level scope or equity optimization.' :
+                            `<strong>Gap to $500K:</strong> $${(500000 - total).toLocaleString()}<br>
+                            <em>Consider: equity refresh, scope expansion, or compliant add-ons</em>`
+                        }
+                    </p>
+                </div>
+            `;
+
+            // Update progress bar in comp tab
+            const progressBar = document.getElementById('compProgress');
+            if (progressBar) {
+                const percentage = Math.min((total / 500000) * 100, 100);
+                progressBar.style.width = percentage + '%';
+                progressBar.textContent = Math.round(percentage) + '%';
+            }
+        }
+
+        // Export Functions
+        function exportTimeline() {
+            alert('Timeline export feature: In a production version, this would generate a PDF of your career timeline. For now, use your browser\'s print function to save the timeline tab as PDF.');
+        }
+
+        function exportCompanyList() {
+            alert('Company list export feature: In a production version, this would generate a downloadable spreadsheet. For now, copy the table data manually or use print to PDF.');
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            loadQuarterOKRs();
+            displayKOLs();
+            updateAccelerator(500000); // Initialize accelerator with default
+            loadNotes(); // Load saved notes
+            updateEmployerList(); // Initialize employer list with industry
+        };
+
+        // ==================== ACCELERATOR FUNCTIONS ====================
+        function updateAccelerator(targetValue) {
+            const target = parseInt(targetValue);
+            const current = 100000; // Starting baseline
+            const years = 5;
+            
+            // Calculate CAGR
+            const cagr = Math.pow(target / current, 1 / years) - 1;
+            const velocity = (cagr * 100).toFixed(1);
+            
+            // Update display
+            document.getElementById('accel-target').textContent = '$' + target.toLocaleString();
+            document.getElementById('accel-velocity').textContent = '+' + velocity + '% / yr';
+            
+            // Generate milestones
+            const milestones = [
+                { year: '2026', title: 'Positioning', desc: 'Proof-of-Work, KOL Maps, Value Thesis', val: 0 },
+                { year: '2027', title: 'Execution', desc: 'MSL Excellence, Insight Generation > Activity', val: 0.3 },
+                { year: '2029', title: 'The Pivot', desc: 'Senior Scope / HQ Rotation (Indy)', val: 0.6 },
+                { year: '2032', title: 'The Close', desc: 'Director Scope, Equity Liquidity', val: 1.0 }
+            ];
+            
+            const milestonesHTML = milestones.map(item => {
+                const estComp = item.val > 0 ? (Math.round(target * item.val / 1000) * 1000).toLocaleString() : 'Preparation';
+                return `
+                    <div class="card" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="background: #1e3c72; color: white; padding: 8px 16px; border-radius: 6px; font-weight: bold;">
+                                ${item.year}
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; color: #1e3c72;">${item.title}</h4>
+                                <p style="margin: 5px 0 0 0; color: #64748b; font-size: 0.9em;">${item.desc}</p>
+                            </div>
+                        </div>
+                        ${item.val > 0 ? `
+                            <div style="text-align: right;">
+                                <div style="font-size: 0.75em; color: #64748b; text-transform: uppercase; font-weight: bold;">Est. TC</div>
+                                <div style="font-size: 1.1em; color: #10b981; font-weight: bold; font-family: monospace;">
+                                    $${estComp}
+                                </div>
+                            </div>
+                        ` : '<div style="color: #94a3b8; font-style: italic;">Foundation Phase</div>'}
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('accel-milestones').innerHTML = milestonesHTML;
+        }
+
+        // ==================== NOTES FUNCTIONS ====================
+        function loadNotes() {
+            const savedNotes = localStorage.getItem('pharmd_career_notes');
+            if (savedNotes) {
+                document.getElementById('career-notes').value = savedNotes;
+            }
+        }
+
+        function saveNotes() {
+            const notes = document.getElementById('career-notes').value;
+            localStorage.setItem('pharmd_career_notes', notes);
+            
+            // Show status
+            const status = document.getElementById('notes-status');
+            status.textContent = '✅ Saved!';
+            setTimeout(() => {
+                status.textContent = '';
+            }, 2000);
+        }
+
+        function clearNotes() {
+            if (confirm('Are you sure you want to clear all notes? This cannot be undone.')) {
+                document.getElementById('career-notes').value = '';
+                localStorage.removeItem('pharmd_career_notes');
+                
+                const status = document.getElementById('notes-status');
+                status.textContent = '🗑️ Cleared';
+                status.style.color = '#ef4444';
+                setTimeout(() => {
+                    status.textContent = '';
+                    status.style.color = '#10b981';
+                }, 2000);
+            }
+        }
+
+        // ==================== TNCP FUNCTIONS ====================
+        
+        // Deterministic Random Number Generator
+        class DeterministicKernel {
+            constructor(seedStr) {
+                this.seedInt = this._hashString(seedStr);
+            }
+            
+            _hashString(str) {
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+                    hash |= 0;
+                }
+                return Math.abs(hash);
+            }
+            
+            random() {
+                let t = this.seedInt += 0x6D2B79F5;
+                t = Math.imul(t ^ (t >>> 15), t | 1);
+                t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+                return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+            }
+            
+            randomRange(min, max) {
+                return min + this.random() * (max - min);
+            }
+            
+            pick(array) {
+                return array[Math.floor(this.random() * array.length)];
+            }
+        }
+
+        // Text Analysis Utilities
+        const TextAnalyzer = {
+            getThemes: (str) => {
+                const keywords = {
+                    'chaos': ['disorder', 'random', 'entropy', 'unpredictable', 'fluctuation', 'noise'],
+                    'order': ['structure', 'pattern', 'law', 'symmetry', 'rule', 'system'],
+                    'life': ['cell', 'biological', 'organic', 'evolution', 'gene', 'protein', 'cancer', 'therapeutic'],
+                    'mind': ['thought', 'conscious', 'perception', 'memory', 'brain', 'logic'],
+                    'market': ['price', 'value', 'trade', 'money', 'economy', 'cost']
+                };
+                let scores = {};
+                const lower = str.toLowerCase();
+                for(let k in keywords) {
+                    scores[k] = keywords[k].filter(w => lower.includes(w)).length;
+                }
+                return Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
+            }
+        };
+
+        // Council Member Logic
+        const Council = {
+            Feynman: (k, text) => {
+                const focus = k.pick(["path integral", "QED", "probability amplitude", "sum over histories"]);
+                const genAnswer = `Richard Feynman's approach to "${text.substring(0,40)}..." involves calculating the sum over all possible histories. Rather than seeking a single deterministic path, Feynman's formalism suggests that the system explores every conceivable trajectory, with the final outcome determined by the interference of these possibilities. What appears as 'noise' or 'deviation' is actually a fundamental component of the system's evolution, contributing to the final probability amplitude. In your specific case, this means considering all possible molecular interactions or pathway states simultaneously.`;
+                
+                return {
+                    insight: `Applying Feynman's ${focus}: Analyze by summing amplitudes of all histories. Every possible pathway configuration contributes to the final observable outcome.`,
+                    math: `K(b, a) = ∫ exp((i/ℏ)S[x(t)]) Dx(t)`,
+                    strategy: "Maximize exposure to 'unlikely' trajectories in your strategy. The final outcome depends on interference from all possible paths—do not prematurely eliminate options that seem improbable.",
+                    metrics: {
+                        "Action (S)": k.random().toFixed(2),
+                        "Phase": (k.random()*360).toFixed(0)+"°",
+                        "Interference": k.random() > 0.5 ? "Constructive" : "Destructive"
+                    },
+                    diagram: "Feynman Diagram of Interaction Paths",
+                    chartType: "path",
+                    generalAnswer: genAnswer
+                };
+            },
+            
+            Nash: (k, text) => {
+                const genAnswer = `John Nash's work on non-cooperative game theory provides a framework for "${text.substring(0,40)}...". A Nash Equilibrium is reached when no agent can improve their situation by unilaterally changing their strategy. In your context, this suggests looking for stable states where competing cellular pathways or therapeutic interventions have optimized their positions relative to one another. The solution lies not in global optimization, but in the stability of self-interested strategies. For drug resistance, this means identifying equilibria where cancer cells cannot easily mutate to escape without fitness cost.`;
+                
+                return {
+                    insight: `Nash Equilibrium Analysis: Stability through non-cooperative optimization. Find states where no single pathway alteration improves the system's position.`,
+                    math: `∀i, u_i(s_i*, s_{-i}*) ≥ u_i(s_i, s_{-i}*)`,
+                    strategy: "Identify the 'Best Response' for your top stakeholders. Do not appeal to altruism; appeal to their payoff matrix. Map what each player gains from maintaining the current equilibrium.",
+                    metrics: {
+                        "Stability Index": "High",
+                        "Payoff Vector": `[${k.random().toFixed(1)}, ${k.random().toFixed(1)}]`,
+                        "Nash Equilibria": Math.floor(k.random() * 3) + 1
+                    },
+                    diagram: "Payoff Matrix / Reaction Curves",
+                    chartType: "matrix",
+                    generalAnswer: genAnswer
+                };
+            },
+            
+            Prigogine: (k, text) => {
+                const genAnswer = `Ilya Prigogine's theory of Dissipative Structures is directly applicable to "${text.substring(0,40)}...". In systems far from equilibrium, entropy production does not lead to degradation but can be the source of new, ordered structures. Your problem likely involves a bifurcation point where fluctuations are amplified, leading to self-organization. This contradicts the classical view of thermodynamics as merely a path to disorder; here, time and irreversibility play a creative role. In cancer biology, this explains how tumors can spontaneously organize despite thermodynamic constraints, and suggests targeting the dissipative processes maintaining that organization.`;
+                
+                return {
+                    insight: `Dissipative Structures: Order emerging from non-equilibrium fluctuations. The system maintains organization by dissipating energy, creating stable far-from-equilibrium states.`,
+                    math: `dS/dt = d_eS/dt + d_iS/dt, where d_iS/dt ≥ 0`,
+                    strategy: "Do not fear instability in your market. Position yourself at the bifurcation point where small interventions can guide self-organization toward your desired outcome. Entropy production is not degradation—it's the energy for new order.",
+                    metrics: {
+                        "Entropy Production": "Positive",
+                        "Bifurcation Point": "Critical",
+                        "Order Parameter": k.random().toFixed(3)
+                    },
+                    diagram: "Bifurcation Diagram showing regime transitions",
+                    chartType: "chaos",
+                    generalAnswer: genAnswer
+                };
+            },
+            
+            Einstein: (k, text) => {
+                const genAnswer = `Albert Einstein's relativistic framework fundamentally alters how we view "${text.substring(0,40)}...". It asserts that measurements are not absolute but relative to the reference frame. In your system, this means there is no privileged observer; the 'laws' governing the system must remain invariant regardless of perspective. Energy and mass (or structure and resources) are interchangeable, suggesting a deep conservation law underlying the apparent dynamics. For drug development, this implies that therapeutic effects depend critically on the reference frame (tissue context, metabolic state) from which they're measured.`;
+                
+                return {
+                    insight: `Relativistic Framework: Invariance under transformation. Physical laws (or biological principles) remain consistent across reference frames, but measurements vary.`,
+                    math: `R_μν - (1/2)Rg_μν = (8πG/c⁴)T_μν`,
+                    strategy: "Map the 'gravity' of Key Opinion Leaders—they warp the information space-time. Find the invariant law that holds regardless of whether you're measuring from the Payer, Patient, or Physician perspective.",
+                    metrics: {
+                        "Curvature": k.random().toFixed(4),
+                        "Tensor T": "Non-zero",
+                        "Invariant Quantity": k.randomRange(1, 10).toFixed(2)
+                    },
+                    diagram: "Light Cone / Geodesic Paths",
+                    chartType: "pulse",
+                    generalAnswer: genAnswer
+                };
+            },
+            
+            Watson: (k, text) => {
+                const genAnswer = `James Watson's co-discovery of DNA structure provides insight into "${text.substring(0,40)}...". The double helix revealed that biological information is encoded in complementary base pairing, suggesting that the solution to your problem lies in understanding the fundamental information architecture. In drug discovery, this means recognizing that therapeutic targets are not isolated entities but parts of a larger informational network where complementarity (lock-and-key, agonist-antagonist) drives specificity.`;
+                
+                return {
+                    insight: `DNA Double Helix Logic: Complementarity drives specificity. Information is encoded in molecular structure, and function emerges from precise geometric matching.`,
+                    math: `A-T, G-C base pairing: ΔG_binding = ΔH - TΔS`,
+                    strategy: "Identify the 'complementary pair' in your system. What is the precise structural match that drives your desired outcome? Optimize for geometric fit, not just affinity.",
+                    metrics: {
+                        "Base Pair Stability": k.random().toFixed(2) + " kcal/mol",
+                        "Helix Turns": Math.floor(k.randomRange(8, 15)),
+                        "Information Content": k.randomRange(2, 4).toFixed(1) + " bits/bp"
+                    },
+                    diagram: "Double Helix Structure",
+                    chartType: "wave",
+                    generalAnswer: genAnswer
+                };
+            },
+            
+            Kahneman: (k, text) => {
+                const genAnswer = `Daniel Kahneman's work on behavioral economics and cognitive biases illuminates "${text.substring(0,40)}...". His research shows that human decision-making is not purely rational but influenced by heuristics and biases. In your context, this suggests that the 'agents' in your system (whether cells, physicians, or market participants) operate on simplified rules rather than optimal calculations. For drug development strategy, this means accounting for how prescribers actually make decisions, not how they theoretically should.`;
+                
+                return {
+                    insight: `Behavioral Framework: Decisions are shaped by cognitive shortcuts, not pure optimization. System 1 (fast, intuitive) vs System 2 (slow, deliberate) thinking applies to your problem.`,
+                    math: `V(x) = x^α for gains, -λ(-x)^β for losses, λ > 1`,
+                    strategy: "Design for System 1 thinking (fast, automatic decisions) rather than System 2 (deliberate analysis). Physicians won't calculate utility functions—they'll use availability heuristics and anchoring. Frame your message accordingly.",
+                    metrics: {
+                        "Loss Aversion (λ)": k.randomRange(2, 2.5).toFixed(2),
+                        "Risk Sensitivity": k.random() > 0.5 ? "Risk-Averse" : "Risk-Seeking",
+                        "Bias Index": k.random().toFixed(2)
+                    },
+                    diagram: "Prospect Theory Value Function",
+                    chartType: "sigmoid",
+                    generalAnswer: genAnswer
+                };
+            },
+            
+            Pauling: (k, text) => {
+                const genAnswer = `Linus Pauling's work on chemical bonding provides a lens for "${text.substring(0,40)}...". His concept of resonance structures and orbital hybridization shows that molecules don't exist in single static configurations but as superpositions of multiple states. For drug design, this means understanding that binding isn't a simple lock-and-key but involves dynamic equilibria between multiple conformations, each contributing to the overall binding energy.`;
+                
+                return {
+                    insight: `Chemical Bond Theory: Resonance and hybridization create stability through electron delocalization. The true structure is a weighted average of contributing forms.`,
+                    math: `Ψ_total = c₁Ψ₁ + c₂Ψ₂ + ... + c_nΨ_n`,
+                    strategy: "Don't seek a single 'perfect' configuration. Optimize for a weighted ensemble of states. Your solution should resonate across multiple contributing forms.",
+                    metrics: {
+                        "Resonance Energy": k.randomRange(10, 50).toFixed(1) + " kcal/mol",
+                        "Hybridization": k.pick(["sp³", "sp²", "sp"]),
+                        "Bond Order": k.randomRange(1, 2).toFixed(2)
+                    },
+                    diagram: "Resonance Structures",
+                    chartType: "wave",
+                    generalAnswer: genAnswer
+                };
+            },
+            
+            Ishiguro: (k, text) => {
+                const genAnswer = `Kazuo Ishiguro's literary exploration of memory and perception offers a unique lens for "${text.substring(0,40)}...". His work suggests that the 'truth' of a system is often obscured by the reconstructive nature of memory or history. In your context, this implies that the data or narrative you're analyzing may be unreliable, shaped more by the need for emotional or structural continuity than by objective fact. For medical research, this means questioning whether our historical understanding of disease mechanisms is complete or merely a comfortable reconstruction.`;
+                
+                return {
+                    insight: `Narrative Reconstruction: Exploring the unreliable narrator in the system. What we remember (or measure) may be shaped by selective attention and hindsight bias.`,
+                    math: `M_recall(t) = M_fact + Δ_bias(t) + ε_trauma`,
+                    strategy: "Disrupt the narrative. The current consensus is a story the field tells itself for coherence. You cannot change practice with data alone—you must rewrite the memory of the failure that led to the current dogma.",
+                    metrics: {
+                        "Nostalgia Factor": "Deep",
+                        "Reliability": "Fluctuating",
+                        "Reconstruction Bias": k.random().toFixed(2)
+                    },
+                    diagram: "Foggy Landscape of Memory",
+                    chartType: "wave",
+                    generalAnswer: genAnswer
+                };
+            },
+            
+            _Generic: (k, name, text, category) => {
+                const buzzwords = {
+                    "Physics": "quantum state evolution",
+                    "Chemistry": "molecular orbital interactions",
+                    "Medicine": "cellular pathway regulation",
+                    "Economics": "market incentive structures",
+                    "Humanities": "narrative structural analysis"
+                };
+                const term = buzzwords[category] || "system dynamics";
+                
+                const genAnswer = `Applying the general principles of ${name}'s work to "${text.substring(0,40)}...": We analyze the system through the lens of ${term}. The input suggests a complex interaction where initial conditions evolve deterministically into a final state. The logic follows a path of minimizing potential energy (or maximizing utility/meaning), suggesting that the observed constraints are emergent properties of the underlying ${category.toLowerCase()} laws.`;
+
+                return {
+                    insight: `Applying ${name}'s methodology: Analysis of ${term}.`,
+                    math: `∫ Φ(x) dx = lim(n→∞) Σ Δᵢ`,
+                    strategy: `Apply systematic analysis using ${term} principles. Identify key variables and optimize based on fundamental ${category.toLowerCase()} laws.`,
+                    metrics: {
+                        "Coherence": (k.random()*100).toFixed(1)+"%",
+                        "Variable X": k.random().toFixed(3)
+                    },
+                    diagram: `Abstract Model of ${term}`,
+                    chartType: k.pick(["wave", "pulse", "sigmoid", "growth", "chaos"]),
+                    generalAnswer: genAnswer
+                };
+            }
+        };
+
+        // Update laureate options based on domain
+        function updateLaureateOptions() {
+            const domain = document.getElementById('tncp-domain').value;
+            const groups = {
+                'Physics': 'physics-group',
+                'Chemistry': 'chemistry-group',
+                'Medicine': 'medicine-group',
+                'Economics': 'economics-group',
+                'Humanities': 'humanities-group'
+            };
+            
+            // Hide all groups
+            Object.values(groups).forEach(groupId => {
+                const group = document.getElementById(groupId);
+                if (group) group.style.display = 'none';
+            });
+            
+            // Show selected group
+            const selectedGroup = document.getElementById(groups[domain]);
+            if (selectedGroup) {
+                selectedGroup.style.display = 'block';
+                // Select first option in the group
+                const firstOption = selectedGroup.querySelector('option');
+                if (firstOption) firstOption.selected = true;
+            }
+        }
+
+        // Main consultation function
+        function consultCouncil() {
+            const laureateSelect = document.getElementById('tncp-laureate');
+            const key = laureateSelect.value;
+            const name = laureateSelect.options[laureateSelect.selectedIndex].text;
+            const domain = document.getElementById('tncp-domain').value;
+            const title = document.getElementById('tncp-title').value;
+            const problemText = document.getElementById('tncp-problem').value || "Default inquiry";
+            
+            // Show loader
+            document.getElementById('tncp-loader').style.display = 'block';
+            document.getElementById('tncp-results').style.display = 'none';
+            
+            setTimeout(() => {
+                // Create deterministic kernel
+                const k = new DeterministicKernel(title + key + problemText);
+                
+                // Get response from council
+                let res;
+                if (Council[key]) {
+                    res = Council[key](k, problemText);
+                } else {
+                    res = Council._Generic(k, name, problemText, domain);
+                }
+                
+                // Update UI
+                document.getElementById('tncp-verdict-title').innerHTML = 
+                    `<i class="fa-solid fa-gavel"></i> Council Verdict: ${name}`;
+                
+                document.getElementById('tncp-insight').innerText = res.insight;
+                
+                // Strategy (if available)
+                if (res.strategy) {
+                    document.getElementById('tncp-strategy').innerText = res.strategy;
+                } else {
+                    document.getElementById('tncp-strategy').innerText = 'Apply this framework systematically to your problem domain.';
+                }
+                
+                // Update flow diagram lens
+                document.getElementById('flow-lens').innerText = name.split('(')[0].trim();
+                
+                // Metrics
+                const metricsDiv = document.getElementById('tncp-metrics');
+                metricsDiv.innerHTML = '';
+                for (const [mk, mv] of Object.entries(res.metrics)) {
+                    metricsDiv.innerHTML += `
+                        <div style="padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                            <div style="font-size: 1.3rem; font-weight: bold; color: #1e3c72;">${mv}</div>
+                            <div style="font-size: 0.85rem; text-transform: uppercase; color: #777; margin-top: 5px;">${mk}</div>
+                        </div>
+                    `;
+                }
+                
+                // Math display
+                document.getElementById('tncp-math').innerText = res.math;
+                document.getElementById('tncp-math-explanation').innerHTML = 
+                    `<strong>Formalism:</strong><br>Derived from ${name}'s principles applied to your input.<br><em>${res.diagram}</em>`;
+                
+                // General answer
+                document.getElementById('tncp-general-answer').innerText = res.generalAnswer;
+                
+                // JSON output
+                document.getElementById('tncp-json').innerText = JSON.stringify({
+                    Laureate: name,
+                    Domain: domain,
+                    InputHash: k.seedInt,
+                    Results: res.metrics,
+                    Insight: res.insight,
+                    Disclaimer: "Subjective Interpretation for Educational Purposes"
+                }, null, 2);
+                
+                // Render chart
+                renderTNCPChart(res.chartType, k);
+                
+                // Hide loader, show results
+                document.getElementById('tncp-loader').style.display = 'none';
+                document.getElementById('tncp-results').style.display = 'block';
+            }, 1500);
+        }
+
+        // Chart rendering for TNCP
+        function renderTNCPChart(type, k) {
+            const chartDiv = document.getElementById('tncp-chart');
+            const x = Array.from({length: 50}, (_, i) => i);
+            let trace = { x, y: x.map(i => k.random()), mode:'markers', marker:{color:'#1e3c72', size: 6} };
+            
+            if(type === 'wave') {
+                trace.y = x.map(i => Math.sin(i/5 + k.random()) * Math.exp(-i/20));
+                trace.mode = 'lines';
+            } else if(type === 'pulse') {
+                trace.y = x.map(i => Math.exp(-Math.pow(i-25,2)/50));
+                trace.mode = 'lines';
+            } else if(type === 'sigmoid') {
+                trace.y = x.map(i => 1/(1+Math.exp(-(i-25)/5)));
+                trace.mode = 'lines';
+            } else if(type === 'growth') {
+                trace.y = x.map(i => Math.log(i+1) + k.random()*0.2);
+                trace.mode = 'lines+markers';
+            } else if(type === 'chaos') {
+                let y=[0.5];
+                for(let i=1;i<50;i++) y.push(3.9*y[i-1]*(1-y[i-1]));
+                trace.y = y;
+                trace.mode = 'lines+markers';
+            } else if(type === 'matrix') {
+                let z = [];
+                for(let i=0;i<10;i++) {
+                    let r=[];
+                    for(let j=0;j<10;j++) r.push(k.random());
+                    z.push(r);
+                }
+                trace = { z: z, type: 'heatmap', colorscale: [[0, '#fff'], [1, '#1e3c72']] };
+                delete trace.x;
+                delete trace.y;
+            } else if(type === 'path') {
+                // Feynman path integral visualization
+                const paths = 5;
+                const traces = [];
+                for(let p=0; p<paths; p++) {
+                    const pathY = x.map(i => Math.sin(i/8 + p) + k.random()*0.3);
+                    traces.push({
+                        x, y: pathY,
+                        mode: 'lines',
+                        line: { color: `rgba(30, 60, 114, ${0.3 + p*0.1})`, width: 2 },
+                        name: `Path ${p+1}`,
+                        showlegend: false
+                    });
+                }
+                Plotly.newPlot(chartDiv, traces, {
+                    margin:{t:20,b:40,l:40,r:20},
+                    height:300,
+                    paper_bgcolor:'rgba(0,0,0,0)',
+                    plot_bgcolor:'rgba(0,0,0,0)',
+                    xaxis: {title: 'Time'},
+                    yaxis: {title: 'Amplitude'}
+                });
+                return;
+            }
+            
+            Plotly.newPlot(chartDiv, [trace], {
+                margin:{t:20,b:40,l:40,r:20},
+                height:300,
+                paper_bgcolor:'rgba(0,0,0,0)',
+                plot_bgcolor:'rgba(0,0,0,0)',
+                xaxis: {title: 'Parameter'},
+                yaxis: {title: 'Value'}
+            });
+        }
+    </script>
+</body>
+</html>
