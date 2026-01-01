@@ -2372,6 +2372,1091 @@ Question: How can we predict which pathway nodes will respond to targeted inhibi
             }
         }
 
+        // ==================== COMPREHENSIVE NOBEL LAUREATE DATABASE ====================
+        
+        const NobelLaureateDatabase = {
+            // Each laureate entry contains: name, year, field, discovery, significance
+            // This database contains 200+ laureates organized by domain
+            
+            Physics: {
+                // Particle Physics & Quantum Mechanics
+                "J.J. Thomson (1906)": {
+                    discovery: "Discovery of the electron",
+                    significance: "First subatomic particle discovered, revolutionized atomic theory",
+                    keywords: ["electron", "cathode rays", "atomic structure"]
+                },
+                "Ernest Rutherford (1908 Chemistry)": {
+                    discovery: "Discovery of the atomic nucleus",
+                    significance: "Established nuclear model of the atom through gold foil experiment",
+                    keywords: ["nucleus", "alpha particles", "atomic model"]
+                },
+                "James Chadwick (1935)": {
+                    discovery: "Discovery of the neutron",
+                    significance: "Completed the basic atomic model with protons, neutrons, and electrons",
+                    keywords: ["neutron", "nuclear structure", "isotopes"]
+                },
+                "Max Planck (1918)": {
+                    discovery: "Quantum theory - energy quanta",
+                    significance: "Founded quantum mechanics by proposing energy comes in discrete packets",
+                    keywords: ["quantum", "planck constant", "black body radiation"]
+                },
+                "Albert Einstein (1921)": {
+                    discovery: "Photoelectric effect",
+                    significance: "Proved light behaves as both particle and wave, foundation of quantum theory",
+                    keywords: ["photon", "relativity", "E=mc²", "photoelectric"]
+                },
+                "Niels Bohr (1922)": {
+                    discovery: "Quantized atomic model",
+                    significance: "Electrons orbit nucleus in discrete energy levels, explaining atomic spectra",
+                    keywords: ["bohr model", "quantum jumps", "atomic orbitals"]
+                },
+                "Louis de Broglie (1929)": {
+                    discovery: "Wave nature of matter",
+                    significance: "Proposed all matter has wave properties, not just light",
+                    keywords: ["matter waves", "wave-particle duality", "de broglie wavelength"]
+                },
+                "Werner Heisenberg (1932)": {
+                    discovery: "Uncertainty principle and quantum mechanics",
+                    significance: "Cannot simultaneously know position and momentum with perfect precision",
+                    keywords: ["uncertainty", "matrix mechanics", "quantum indeterminacy"]
+                },
+                "Erwin Schrödinger (1933)": {
+                    discovery: "Wave equation for quantum mechanics",
+                    significance: "Mathematical framework describing quantum states and their evolution",
+                    keywords: ["wave function", "schrödinger equation", "quantum superposition"]
+                },
+                "Paul Dirac (1933)": {
+                    discovery: "Relativistic quantum mechanics and antimatter prediction",
+                    significance: "Combined quantum mechanics with relativity, predicted existence of antiparticles",
+                    keywords: ["dirac equation", "antimatter", "positron", "quantum field theory"]
+                },
+                "Wolfgang Pauli (1945)": {
+                    discovery: "Exclusion principle",
+                    significance: "No two fermions can occupy the same quantum state, explains periodic table structure",
+                    keywords: ["pauli exclusion", "fermions", "electron configuration"]
+                },
+                "Max Born (1954)": {
+                    discovery: "Statistical interpretation of quantum mechanics",
+                    significance: "Wave function represents probability, not certainty",
+                    keywords: ["probability amplitude", "quantum statistics", "born rule"]
+                },
+                
+                // Particle Discoveries
+                "Murray Gell-Mann (1969)": {
+                    discovery: "Quark model of hadrons",
+                    significance: "Protons and neutrons are made of even smaller particles called quarks",
+                    keywords: ["quarks", "hadrons", "eightfold way", "flavor"]
+                },
+                "Jerome Friedman, Henry Kendall, Richard Taylor (1990)": {
+                    discovery: "Experimental confirmation of quarks",
+                    significance: "Deep inelastic scattering proved quarks exist inside protons",
+                    keywords: ["deep inelastic scattering", "quark structure", "SLAC"]
+                },
+                "David Gross, David Politzer, Frank Wilczek (2004)": {
+                    discovery: "Asymptotic freedom in strong force",
+                    significance: "Quarks interact weakly when close, strongly when far apart",
+                    keywords: ["quantum chromodynamics", "color force", "asymptotic freedom"]
+                },
+                
+                // Standard Model & Forces
+                "Sheldon Glashow, Abdus Salam, Steven Weinberg (1979)": {
+                    discovery: "Electroweak unification",
+                    significance: "Unified electromagnetic and weak nuclear forces into single framework",
+                    keywords: ["electroweak", "gauge theory", "unification"]
+                },
+                "Gerardus 't Hooft, Martinus Veltman (1999)": {
+                    discovery: "Renormalization of electroweak theory",
+                    significance: "Made quantum field theory mathematically consistent and predictive",
+                    keywords: ["renormalization", "quantum field theory", "infinities"]
+                },
+                "Carlo Rubbia, Simon van der Meer (1984)": {
+                    discovery: "Discovery of W and Z bosons",
+                    significance: "Found the carrier particles of the weak nuclear force",
+                    keywords: ["W boson", "Z boson", "weak force", "CERN"]
+                },
+                "François Englert, Peter Higgs (2013)": {
+                    discovery: "Higgs mechanism for mass generation",
+                    significance: "Explains how particles acquire mass through interaction with Higgs field",
+                    keywords: ["higgs boson", "mass", "higgs field", "symmetry breaking"]
+                },
+                "Yoichiro Nambu (2008)": {
+                    discovery: "Spontaneous symmetry breaking",
+                    significance: "Mechanism by which symmetric laws produce asymmetric outcomes",
+                    keywords: ["symmetry breaking", "goldstone bosons", "QCD"]
+                },
+                "Makoto Kobayashi, Toshihide Maskawa (2008)": {
+                    discovery: "Origin of CP violation predicting three quark families",
+                    significance: "Explains matter-antimatter asymmetry in universe",
+                    keywords: ["CP violation", "quark families", "matter asymmetry"]
+                },
+                "James Cronin, Val Fitch (1980)": {
+                    discovery: "CP violation in K-meson decay",
+                    significance: "First observation that certain symmetries are violated in nature",
+                    keywords: ["CP violation", "K mesons", "symmetry"]
+                },
+                
+                // Neutrinos
+                "Frederick Reines (1995)": {
+                    discovery: "Detection of neutrinos",
+                    significance: "Experimentally confirmed existence of Pauli's ghost particle",
+                    keywords: ["neutrino detection", "beta decay", "weak interaction"]
+                },
+                "Leon Lederman, Melvin Schwartz, Jack Steinberger (1988)": {
+                    discovery: "Muon neutrino discovery",
+                    significance: "Proved there are multiple types (flavors) of neutrinos",
+                    keywords: ["muon neutrino", "neutrino flavors", "lepton families"]
+                },
+                "Raymond Davis Jr., Masatoshi Koshiba (2002)": {
+                    discovery: "Cosmic neutrino detection",
+                    significance: "Detected neutrinos from sun and supernovae, opening neutrino astronomy",
+                    keywords: ["solar neutrinos", "neutrino astronomy", "homestake"]
+                },
+                "Takaaki Kajita, Arthur McDonald (2015)": {
+                    discovery: "Neutrino oscillations showing they have mass",
+                    significance: "Neutrinos change flavor as they travel, proving they must have mass",
+                    keywords: ["neutrino oscillation", "neutrino mass", "flavor change"]
+                },
+                "Martin Perl (1995)": {
+                    discovery: "Discovery of the tau lepton",
+                    significance: "Found the third generation of matter particles",
+                    keywords: ["tau lepton", "third generation", "lepton family"]
+                },
+                
+                // Condensed Matter & Materials
+                "Heike Kamerlingh Onnes (1913)": {
+                    discovery: "Liquefaction of helium and superconductivity discovery",
+                    significance: "Found materials lose all electrical resistance at very low temperatures",
+                    keywords: ["superconductivity", "liquid helium", "zero resistance"]
+                },
+                "John Bardeen, Leon Cooper, Robert Schrieffer (1972)": {
+                    discovery: "BCS theory of superconductivity",
+                    significance: "Explained superconductivity through electron pairing mechanism",
+                    keywords: ["BCS theory", "cooper pairs", "superconductor"]
+                },
+                "Brian Josephson (1973)": {
+                    discovery: "Josephson effect - tunneling supercurrents",
+                    significance: "Predicted quantum tunneling between superconductors, basis for SQUIDs",
+                    keywords: ["josephson junction", "tunneling", "quantum devices"]
+                },
+                "Leo Esaki, Ivar Giaever (1973)": {
+                    discovery: "Tunneling in semiconductors and superconductors",
+                    significance: "Quantum tunneling enables modern electronics and quantum devices",
+                    keywords: ["tunnel diode", "tunneling spectroscopy", "quantum tunneling"]
+                },
+                "Lev Landau (1962)": {
+                    discovery: "Theory of superfluidity",
+                    significance: "Explained liquid helium's ability to flow without friction",
+                    keywords: ["superfluidity", "helium-4", "quantum fluid"]
+                },
+                "Klaus von Klitzing (1985)": {
+                    discovery: "Quantum Hall effect",
+                    significance: "Conductance quantized in discrete steps in 2D electron systems",
+                    keywords: ["quantum hall", "quantized conductance", "2D systems"]
+                },
+                "Robert Laughlin, Horst Störmer, Daniel Tsui (1998)": {
+                    discovery: "Fractional quantum Hall effect",
+                    significance: "Quasiparticles with fractional charge emerge in 2D systems",
+                    keywords: ["fractional charge", "quasiparticles", "anyons"]
+                },
+                "Vitaly Ginzburg, Alexei Abrikosov, Anthony Leggett (2003)": {
+                    discovery: "Theories of superconductors and superfluids",
+                    significance: "Explained type-II superconductors and superfluid helium-3",
+                    keywords: ["type-II superconductor", "vortices", "superfluid helium-3"]
+                },
+                "Andre Geim, Konstantin Novoselov (2010)": {
+                    discovery: "Isolation and characterization of graphene",
+                    significance: "Single-layer carbon material with extraordinary electronic properties",
+                    keywords: ["graphene", "2D material", "carbon sheet"]
+                },
+                "David Thouless, Duncan Haldane, Michael Kosterlitz (2016)": {
+                    discovery: "Topological phase transitions",
+                    significance: "Topology explains exotic states of matter and phase transitions",
+                    keywords: ["topology", "phase transitions", "topological insulators"]
+                },
+                "John Bardeen, Walter Brattain, William Shockley (1956)": {
+                    discovery: "Invention of the transistor",
+                    significance: "Foundation of all modern electronics and computing",
+                    keywords: ["transistor", "semiconductor", "silicon"]
+                },
+                "Jack Kilby (2000)": {
+                    discovery: "Invention of the integrated circuit",
+                    significance: "Put multiple transistors on one chip, enabling modern computers",
+                    keywords: ["integrated circuit", "microchip", "IC"]
+                },
+                "Johannes Georg Bednorz, K. Alex Müller (1987)": {
+                    discovery: "High-temperature superconductivity",
+                    significance: "Found superconductors that work at much higher (though still cold) temperatures",
+                    keywords: ["high-Tc superconductor", "ceramic superconductors", "cuprates"]
+                },
+                
+                // Optics, Lasers & Photonics
+                "Charles Townes, Nikolay Basov, Aleksandr Prokhorov (1964)": {
+                    discovery: "Maser and laser principles",
+                    significance: "Coherent amplification of light - foundation of laser technology",
+                    keywords: ["laser", "maser", "coherent light", "stimulated emission"]
+                },
+                "Arthur Schawlow, Nicolaas Bloembergen (1981)": {
+                    discovery: "Laser spectroscopy",
+                    significance: "Using lasers to measure atomic properties with extreme precision",
+                    keywords: ["spectroscopy", "laser cooling", "precision measurement"]
+                },
+                "Theodor Hänsch, John Hall (2005)": {
+                    discovery: "Optical frequency comb technique",
+                    significance: "Ultra-precise measurement of light frequencies, atomic clocks",
+                    keywords: ["frequency comb", "precision spectroscopy", "atomic clock"]
+                },
+                "Arthur Ashkin (2018)": {
+                    discovery: "Optical tweezers",
+                    significance: "Using focused laser beams to manipulate microscopic particles and cells",
+                    keywords: ["optical tweezers", "laser manipulation", "optical trap"]
+                },
+                "Gérard Mourou, Donna Strickland (2018)": {
+                    discovery: "Chirped pulse amplification for ultra-intense lasers",
+                    significance: "Method to generate extremely short, powerful laser pulses for surgery and research",
+                    keywords: ["chirped pulse", "femtosecond laser", "laser surgery"]
+                },
+                "Charles Kao (2009)": {
+                    discovery: "Fiber optic communication",
+                    significance: "Transmitting light through glass fibers - foundation of internet infrastructure",
+                    keywords: ["fiber optics", "optical fiber", "telecommunications"]
+                },
+                "Willard Boyle, George Smith (2009)": {
+                    discovery: "Charge-coupled device (CCD) image sensor",
+                    significance: "Electronic eye that captures digital images in cameras and telescopes",
+                    keywords: ["CCD", "image sensor", "digital camera"]
+                },
+                "Isamu Akasaki, Hiroshi Amano, Shuji Nakamura (2014)": {
+                    discovery: "Blue LED",
+                    significance: "Enabled bright white LED lighting, revolutionizing energy efficiency",
+                    keywords: ["LED", "blue light", "energy efficient lighting"]
+                },
+                "Steven Chu, Claude Cohen-Tannoudji, William Phillips (1997)": {
+                    discovery: "Laser cooling and trapping of atoms",
+                    significance: "Slowing atoms to near absolute zero using laser light",
+                    keywords: ["laser cooling", "cold atoms", "optical molasses"]
+                },
+                "Hans Dehmelt, Wolfgang Paul (1989)": {
+                    discovery: "Ion trap technique",
+                    significance: "Isolating and studying single atoms in electromagnetic traps",
+                    keywords: ["ion trap", "paul trap", "penning trap"]
+                },
+                "Serge Haroche, David Wineland (2012)": {
+                    discovery: "Measuring individual quantum systems without destroying them",
+                    significance: "Observing quantum states non-destructively, key for quantum computing",
+                    keywords: ["quantum measurement", "cavity QED", "quantum control"]
+                },
+                "Roy Glauber (2005)": {
+                    discovery: "Quantum theory of optical coherence",
+                    significance: "Quantum description of light, foundation of quantum optics",
+                    keywords: ["quantum optics", "coherence", "photon statistics"]
+                },
+                
+                // Cosmology, Astrophysics & Gravity
+                "Subrahmanyan Chandrasekhar (1983)": {
+                    discovery: "Stellar structure and evolution",
+                    significance: "Chandrasekhar limit determines fate of stars - white dwarf or supernova",
+                    keywords: ["stellar evolution", "white dwarf", "chandrasekhar limit"]
+                },
+                "William Fowler (1983)": {
+                    discovery: "Nuclear reactions in stars",
+                    significance: "Explained how elements are created inside stars through fusion",
+                    keywords: ["stellar nucleosynthesis", "element formation", "fusion"]
+                },
+                "Hans Bethe (1967)": {
+                    discovery: "Energy production in stars",
+                    significance: "Explained how hydrogen fusion powers the sun and stars",
+                    keywords: ["stellar fusion", "CNO cycle", "pp chain"]
+                },
+                "Arno Penzias, Robert Wilson (1978)": {
+                    discovery: "Cosmic microwave background radiation",
+                    significance: "Detected afterglow of Big Bang, confirming universe had a hot beginning",
+                    keywords: ["CMB", "cosmic background", "big bang echo"]
+                },
+                "John Mather, George Smoot (2006)": {
+                    discovery: "CMB spectrum and anisotropy",
+                    significance: "Mapped temperature variations in early universe - seeds of galaxies",
+                    keywords: ["CMB anisotropy", "COBE", "temperature fluctuations"]
+                },
+                "James Peebles (2019)": {
+                    discovery: "Physical cosmology and theoretical discoveries",
+                    significance: "Transformed cosmology into precision science, dark matter and dark energy",
+                    keywords: ["physical cosmology", "dark matter", "structure formation"]
+                },
+                "Michel Mayor, Didier Queloz (2019)": {
+                    discovery: "First exoplanet around sun-like star",
+                    significance: "Discovered planets orbit other stars, thousands now known",
+                    keywords: ["exoplanets", "planetary systems", "51 Pegasi b"]
+                },
+                "Roger Penrose (2020)": {
+                    discovery: "Mathematical proof that black holes are consequence of relativity",
+                    significance: "Showed black holes must form from gravitational collapse",
+                    keywords: ["black holes", "singularity", "penrose diagram"]
+                },
+                "Reinhard Genzel, Andrea Ghez (2020)": {
+                    discovery: "Supermassive black hole at Milky Way center",
+                    significance: "Tracked stars orbiting invisible massive object at galaxy's heart",
+                    keywords: ["sagittarius A*", "supermassive black hole", "galactic center"]
+                },
+                "Rainer Weiss, Barry Barish, Kip Thorne (2017)": {
+                    discovery: "Detection of gravitational waves",
+                    significance: "LIGO detected ripples in spacetime from merging black holes",
+                    keywords: ["gravitational waves", "LIGO", "spacetime ripples"]
+                },
+                "Russell Hulse, Joseph Taylor (1993)": {
+                    discovery: "Binary pulsar and gravitational radiation",
+                    significance: "Indirect evidence for gravitational waves through orbital decay",
+                    keywords: ["binary pulsar", "gravitational radiation", "orbital decay"]
+                },
+                "Saul Perlmutter, Brian Schmidt, Adam Riess (2011)": {
+                    discovery: "Accelerating expansion of universe through supernovae observations",
+                    significance: "Universe's expansion is speeding up - evidence for dark energy",
+                    keywords: ["dark energy", "accelerating universe", "type Ia supernovae"]
+                }
+            },
+            
+            Chemistry: {
+                // Chemical Bonding & Structure
+                "Linus Pauling (1954)": {
+                    discovery: "Nature of the chemical bond",
+                    significance: "Defined how atoms share electrons, introduced electronegativity scale",
+                    keywords: ["chemical bond", "electronegativity", "hybridization", "resonance"]
+                },
+                "Robert Mulliken (1966)": {
+                    discovery: "Molecular orbital theory",
+                    significance: "Electrons in molecules occupy molecular orbitals, not just atomic ones",
+                    keywords: ["molecular orbitals", "bonding", "antibonding"]
+                },
+                "Kenichi Fukui, Roald Hoffmann (1981)": {
+                    discovery: "Orbital symmetry in chemical reactions",
+                    significance: "Orbital overlap determines which reactions can occur",
+                    keywords: ["frontier orbitals", "HOMO-LUMO", "reaction mechanisms"]
+                },
+                "Walter Kohn, John Pople (1998)": {
+                    discovery: "Computational chemistry methods",
+                    significance: "Density functional theory enables computer modeling of molecules",
+                    keywords: ["DFT", "computational chemistry", "quantum chemistry"]
+                },
+                
+                // Organic Synthesis
+                "Victor Grignard, Paul Sabatier (1912)": {
+                    discovery: "Grignard reagents and catalytic hydrogenation",
+                    significance: "Powerful methods for making carbon-carbon bonds and reducing molecules",
+                    keywords: ["grignard reagent", "hydrogenation", "catalysis"]
+                },
+                "Otto Diels, Kurt Alder (1950)": {
+                    discovery: "Diels-Alder reaction",
+                    significance: "Forms six-membered rings in one step - cornerstone of synthesis",
+                    keywords: ["cycloaddition", "ring formation", "diene synthesis"]
+                },
+                "Robert Burns Woodward (1965)": {
+                    discovery: "Art of organic synthesis",
+                    significance: "Synthesized complex natural products like quinine, cholesterol, vitamin B12",
+                    keywords: ["total synthesis", "natural products", "complex molecules"]
+                },
+                "Elias James Corey (1990)": {
+                    discovery: "Retrosynthetic analysis",
+                    significance: "Systematic method to plan synthesis by working backwards from target",
+                    keywords: ["retrosynthesis", "synthetic planning", "disconnection"]
+                },
+                "Herbert Brown, Georg Wittig (1979)": {
+                    discovery: "Boron and phosphorus reagents in synthesis",
+                    significance: "New tools for precise construction of organic molecules",
+                    keywords: ["hydroboration", "wittig reaction", "alkene synthesis"]
+                },
+                "Yves Chauvin, Robert Grubbs, Richard Schrock (2005)": {
+                    discovery: "Metathesis in organic synthesis",
+                    significance: "Swapping parts of molecules to make new compounds efficiently",
+                    keywords: ["olefin metathesis", "ring-closing", "catalyst"]
+                },
+                "Richard Heck, Ei-ichi Negishi, Akira Suzuki (2010)": {
+                    discovery: "Palladium-catalyzed cross couplings",
+                    significance: "Joining carbon atoms precisely - essential for pharmaceuticals",
+                    keywords: ["cross-coupling", "palladium catalysis", "C-C bond formation"]
+                },
+                "William Knowles, Ryoji Noyori, K. Barry Sharpless (2001)": {
+                    discovery: "Asymmetric catalysis",
+                    significance: "Making molecules with specific handedness - critical for drug activity",
+                    keywords: ["chirality", "enantioselective", "asymmetric synthesis"]
+                },
+                "K. Barry Sharpless, Morten Meldal, Carolyn Bertozzi (2022)": {
+                    discovery: "Click chemistry and bioorthogonal chemistry",
+                    significance: "Simple, reliable reactions that work in living systems",
+                    keywords: ["click chemistry", "bioorthogonal", "azide-alkyne"]
+                },
+                "Benjamin List, David MacMillan (2021)": {
+                    discovery: "Asymmetric organocatalysis",
+                    significance: "Using small organic molecules instead of metals as catalysts",
+                    keywords: ["organocatalysis", "enamine", "green chemistry"]
+                },
+                
+                // Polymer Chemistry
+                "Hermann Staudinger (1953)": {
+                    discovery: "Macromolecular chemistry",
+                    significance: "Proved polymers are giant molecules, not aggregates",
+                    keywords: ["polymers", "macromolecules", "polymerization"]
+                },
+                "Karl Ziegler, Giulio Natta (1963)": {
+                    discovery: "Catalysts for stereoregular polymers",
+                    significance: "Made plastics with controlled structure - polypropylene, polyethylene",
+                    keywords: ["ziegler-natta", "stereoregular", "polyolefins"]
+                },
+                "Paul Flory (1974)": {
+                    discovery: "Physical chemistry of polymers",
+                    significance: "How polymer chains coil, stretch, and crystallize",
+                    keywords: ["polymer physics", "chain statistics", "rubber elasticity"]
+                },
+                "Alan Heeger, Alan MacDiarmid, Hideki Shirakawa (2000)": {
+                    discovery: "Conductive polymers",
+                    significance: "Plastics that conduct electricity - flexible electronics",
+                    keywords: ["conducting polymers", "polyacetylene", "organic electronics"]
+                },
+                
+                // Biochemistry & Structural Biology
+                "Frederick Sanger (1958, 1980)": {
+                    discovery: "Protein sequencing and DNA sequencing",
+                    significance: "Determined amino acid sequence of insulin, later invented DNA sequencing",
+                    keywords: ["protein sequencing", "sanger sequencing", "insulin"]
+                },
+                "Max Perutz, John Kendrew (1962)": {
+                    discovery: "Structures of hemoglobin and myoglobin",
+                    significance: "First protein structures determined by X-ray crystallography",
+                    keywords: ["protein structure", "hemoglobin", "myoglobin", "X-ray"]
+                },
+                "Dorothy Hodgkin (1964)": {
+                    discovery: "X-ray structures of penicillin, vitamin B12, insulin",
+                    significance: "Revealed 3D structure of important biomolecules",
+                    keywords: ["crystallography", "penicillin structure", "B12"]
+                },
+                "Aaron Klug (1982)": {
+                    discovery: "Crystallographic electron microscopy and nucleic acid-protein complexes",
+                    significance: "Determined structures of viruses and chromatin",
+                    keywords: ["electron microscopy", "virus structure", "nucleosome"]
+                },
+                "Kurt Wüthrich (2002)": {
+                    discovery: "NMR spectroscopy of biological macromolecules",
+                    significance: "Determining protein structures in solution using magnetic resonance",
+                    keywords: ["NMR", "protein NMR", "solution structure"]
+                },
+                "John Fenn, Koichi Tanaka (2002)": {
+                    discovery: "Mass spectrometry of biological macromolecules",
+                    significance: "Soft ionization methods to weigh and identify proteins",
+                    keywords: ["mass spec", "electrospray", "MALDI"]
+                },
+                "Jacques Dubochet, Joachim Frank, Richard Henderson (2017)": {
+                    discovery: "Cryo-electron microscopy",
+                    significance: "Imaging biomolecules at atomic resolution by freezing them",
+                    keywords: ["cryo-EM", "electron microscopy", "biomolecule imaging"]
+                },
+                "Roger Kornberg (2006)": {
+                    discovery: "Molecular basis of eukaryotic transcription",
+                    significance: "Structure of RNA polymerase II showing how DNA is transcribed",
+                    keywords: ["transcription", "RNA polymerase", "gene expression"]
+                },
+                "Venkatraman Ramakrishnan, Thomas Steitz, Ada Yonath (2009)": {
+                    discovery: "Structure and function of the ribosome",
+                    significance: "Atomic structure of protein-making machinery of cells",
+                    keywords: ["ribosome", "protein synthesis", "translation"]
+                },
+                
+                // Enzymes & Catalysis  
+                "Osamu Shimomura, Martin Chalfie, Roger Tsien (2008)": {
+                    discovery: "Green fluorescent protein (GFP)",
+                    significance: "Glowing protein tag to visualize cellular processes in living organisms",
+                    keywords: ["GFP", "fluorescence", "protein tagging", "imaging"]
+                },
+                "Frances Arnold (2018)": {
+                    discovery: "Directed evolution of enzymes",
+                    significance: "Engineering proteins by simulating natural selection in the lab",
+                    keywords: ["directed evolution", "enzyme engineering", "protein design"]
+                },
+                "George Smith, Gregory Winter (2018)": {
+                    discovery: "Phage display of peptides and antibodies",
+                    significance: "Displaying proteins on viruses to evolve new functions",
+                    keywords: ["phage display", "antibody engineering", "protein evolution"]
+                },
+                "Emmanuelle Charpentier, Jennifer Doudna (2020)": {
+                    discovery: "CRISPR-Cas9 genetic scissors",
+                    significance: "Precise gene editing tool revolutionizing biology and medicine",
+                    keywords: ["CRISPR", "gene editing", "Cas9", "genome engineering"]
+                },
+                "Tomas Lindahl, Paul Modrich, Aziz Sancar (2015)": {
+                    discovery: "DNA repair mechanisms",
+                    significance: "How cells fix damaged DNA to prevent mutations and cancer",
+                    keywords: ["DNA repair", "mismatch repair", "nucleotide excision"]
+                },
+                "Aaron Ciechanover, Avram Hershko, Irwin Rose (2004)": {
+                    discovery: "Ubiquitin-mediated protein degradation",
+                    significance: "How cells tag and destroy unwanted proteins",
+                    keywords: ["ubiquitin", "proteasome", "protein degradation"]
+                },
+                
+                // Chemical Dynamics & Kinetics
+                "Manfred Eigen, Ronald Norrish, George Porter (1967)": {
+                    discovery: "Fast reactions and relaxation techniques",
+                    significance: "Studying chemical reactions happening in microseconds",
+                    keywords: ["flash photolysis", "relaxation methods", "fast reactions"]
+                },
+                "Ahmed Zewail (1999)": {
+                    discovery: "Femtochemistry",
+                    significance: "Watching chemical bonds break and form in real time with ultrafast lasers",
+                    keywords: ["femtosecond", "transition state", "ultrafast spectroscopy"]
+                },
+                "Dudley Herschbach, Yuan Lee, John Polanyi (1986)": {
+                    discovery: "Reaction dynamics using molecular beams",
+                    significance: "Crossed molecular beams reveal details of chemical collisions",
+                    keywords: ["molecular beams", "reaction dynamics", "scattering"]
+                },
+                "Rudolph Marcus (1992)": {
+                    discovery: "Theory of electron transfer reactions",
+                    significance: "Mathematical framework for electron movement between molecules",
+                    keywords: ["electron transfer", "marcus theory", "reorganization energy"]
+                },
+                
+                // Batteries & Energy Storage
+                "John Goodenough, Stanley Whittingham, Akira Yoshino (2019)": {
+                    discovery: "Development of lithium-ion batteries",
+                    significance: "Rechargeable batteries powering portable electronics and electric vehicles",
+                    keywords: ["lithium-ion", "battery", "energy storage", "cathode"]
+                },
+                
+                // Atmospheric Chemistry
+                "Paul Crutzen, Mario Molina, Sherwood Rowland (1995)": {
+                    discovery: "Ozone depletion chemistry",
+                    significance: "CFCs destroy ozone layer - led to Montreal Protocol",
+                    keywords: ["ozone hole", "CFC", "atmospheric chemistry"]
+                }
+            },
+            
+            Medicine: {
+                // Immunology & Infectious Disease
+                "Emil von Behring (1901)": {
+                    discovery: "Serum therapy for diphtheria",
+                    significance: "First demonstration that antibodies in blood can fight disease",
+                    keywords: ["serum therapy", "antibodies", "diphtheria antitoxin"]
+                },
+                "Paul Ehrlich, Ilya Metchnikoff (1908)": {
+                    discovery: "Immunity - antibodies and phagocytes",
+                    significance: "Founded immunology - cells that eat invaders and molecules that tag them",
+                    keywords: ["phagocytosis", "antibodies", "immune cells"]
+                },
+                "Alexander Fleming, Ernst Chain, Howard Florey (1945)": {
+                    discovery: "Penicillin",
+                    significance: "First antibiotic - killed bacteria, saved millions from infections",
+                    keywords: ["penicillin", "antibiotic", "bacteria"]
+                },
+                "Selman Waksman (1952)": {
+                    discovery: "Streptomycin - first antibiotic for tuberculosis",
+                    significance: "Isolated from soil bacteria, effective against TB",
+                    keywords: ["streptomycin", "tuberculosis", "actinomycetes"]
+                },
+                "Frank Macfarlane Burnet, Peter Medawar (1960)": {
+                    discovery: "Acquired immunological tolerance",
+                    significance: "How immune system learns to distinguish self from non-self",
+                    keywords: ["immune tolerance", "self-nonself", "transplant"]
+                },
+                "Gerald Edelman, Rodney Porter (1972)": {
+                    discovery: "Structure of antibodies",
+                    significance: "Y-shaped proteins with variable and constant regions",
+                    keywords: ["antibody structure", "immunoglobulin", "antigen binding"]
+                },
+                "Susumu Tonegawa (1987)": {
+                    discovery: "Genetic principle for antibody diversity",
+                    significance: "How B cells shuffle genes to make billions of different antibodies",
+                    keywords: ["V(D)J recombination", "antibody diversity", "gene shuffling"]
+                },
+                "Niels Jerne, Georges Köhler, Cesar Milstein (1984)": {
+                    discovery: "Immune network theory and monoclonal antibodies",
+                    significance: "Making unlimited quantities of identical antibodies for therapy",
+                    keywords: ["monoclonal antibodies", "hybridoma", "immune network"]
+                },
+                "Baruj Benacerraf, Jean Dausset, George Snell (1980)": {
+                    discovery: "MHC complex and immune recognition",
+                    significance: "Proteins that present antigens and determine transplant compatibility",
+                    keywords: ["MHC", "HLA", "transplant rejection", "antigen presentation"]
+                },
+                "Peter Doherty, Rolf Zinkernagel (1996)": {
+                    discovery: "How T cells recognize virus-infected cells",
+                    significance: "T cells see viral peptides displayed on MHC molecules",
+                    keywords: ["T cell recognition", "MHC restriction", "viral immunity"]
+                },
+                "Bruce Beutler, Jules Hoffmann, Ralph Steinman (2011)": {
+                    discovery: "Innate immunity activation",
+                    significance: "Toll-like receptors detect pathogens, dendritic cells activate adaptive immunity",
+                    keywords: ["innate immunity", "TLR", "dendritic cells", "pattern recognition"]
+                },
+                "James Allison, Tasuku Honjo (2018)": {
+                    discovery: "Cancer immunotherapy by checkpoint blockade",
+                    significance: "Releasing brakes on T cells to attack tumors",
+                    keywords: ["checkpoint inhibitors", "CTLA-4", "PD-1", "cancer immunotherapy"]
+                },
+                "William Campbell, Satoshi Ōmura, Tu Youyou (2015)": {
+                    discovery: "Therapies against parasitic diseases",
+                    significance: "Avermectin for river blindness, artemisinin for malaria",
+                    keywords: ["ivermectin", "artemisinin", "parasites", "malaria"]
+                },
+                
+                // Virology
+                "Harald zur Hausen (2008)": {
+                    discovery: "HPV causes cervical cancer",
+                    significance: "Led to HPV vaccine preventing cancer",
+                    keywords: ["HPV", "cervical cancer", "papillomavirus"]
+                },
+                "Françoise Barré-Sinoussi, Luc Montagnier (2008)": {
+                    discovery: "Discovery of HIV",
+                    significance: "Identified virus causing AIDS",
+                    keywords: ["HIV", "AIDS", "retrovirus"]
+                },
+                "Baruch Blumberg (1976)": {
+                    discovery: "Hepatitis B virus",
+                    significance: "Discovery led to blood screening and vaccine",
+                    keywords: ["hepatitis B", "HBV", "liver disease"]
+                },
+                "Harvey Alter, Michael Houghton, Charles Rice (2020)": {
+                    discovery: "Hepatitis C virus",
+                    significance: "Identified blood-borne virus causing chronic liver disease",
+                    keywords: ["hepatitis C", "HCV", "cirrhosis"]
+                },
+                "David Baltimore, Renato Dulbecco, Howard Temin (1975)": {
+                    discovery: "Reverse transcriptase",
+                    significance: "Enzyme that copies RNA into DNA - key to retroviruses",
+                    keywords: ["reverse transcriptase", "retrovirus", "RNA→DNA"]
+                },
+                "Stanley Prusiner (1997)": {
+                    discovery: "Prions - infectious proteins",
+                    significance: "Misfolded proteins cause mad cow disease, not viruses or bacteria",
+                    keywords: ["prion", "mad cow", "CJD", "protein misfolding"]
+                },
+                "Barry Marshall, Robin Warren (2005)": {
+                    discovery: "Helicobacter pylori causes ulcers",
+                    significance: "Stomach ulcers caused by bacteria, not stress - curable with antibiotics",
+                    keywords: ["H. pylori", "ulcers", "gastritis"]
+                },
+                
+                // Genetics & Molecular Biology
+                "Thomas Hunt Morgan (1933)": {
+                    discovery: "Chromosomes carry heredity",
+                    significance: "Genes located on chromosomes, proved using fruit flies",
+                    keywords: ["chromosomes", "genetic linkage", "drosophila"]
+                },
+                "Hermann Muller (1946)": {
+                    discovery: "X-ray induced mutations",
+                    significance: "Radiation damages DNA causing genetic changes",
+                    keywords: ["mutagenesis", "X-rays", "radiation"]
+                },
+                "George Beadle, Edward Tatum, Joshua Lederberg (1958)": {
+                    discovery: "One gene-one enzyme and bacterial genetics",
+                    significance: "Each gene codes for one protein, bacteria exchange DNA",
+                    keywords: ["one gene one enzyme", "bacterial conjugation", "neurospora"]
+                },
+                "Arthur Kornberg, Severo Ochoa (1959)": {
+                    discovery: "Enzymatic synthesis of DNA and RNA",
+                    significance: "Isolated enzymes that replicate genetic material",
+                    keywords: ["DNA polymerase", "RNA polymerase", "replication"]
+                },
+                "Francis Crick, James Watson, Maurice Wilkins (1962)": {
+                    discovery: "DNA double helix structure",
+                    significance: "Complementary base pairing explains heredity and replication",
+                    keywords: ["double helix", "base pairing", "DNA structure"]
+                },
+                "François Jacob, André Lwoff, Jacques Monod (1965)": {
+                    discovery: "Genetic regulation - the operon",
+                    significance: "How genes are turned on and off by repressor proteins",
+                    keywords: ["operon", "lac operon", "gene regulation"]
+                },
+                "Robert Holley, Har Gobind Khorana, Marshall Nirenberg (1968)": {
+                    discovery: "Genetic code",
+                    significance: "How DNA triplets specify amino acids in proteins",
+                    keywords: ["genetic code", "codons", "translation"]
+                },
+                "Barbara McClintock (1983)": {
+                    discovery: "Transposable elements",
+                    significance: "Jumping genes that move around genome",
+                    keywords: ["transposons", "jumping genes", "mobile DNA"]
+                },
+                "Richard Roberts, Phillip Sharp (1993)": {
+                    discovery: "Split genes - introns and exons",
+                    significance: "Genes interrupted by non-coding sequences that are spliced out",
+                    keywords: ["RNA splicing", "introns", "exons"]
+                },
+                "Andrew Fire, Craig Mello (2006)": {
+                    discovery: "RNA interference",
+                    significance: "Small RNAs silence genes by destroying mRNA",
+                    keywords: ["RNAi", "siRNA", "gene silencing"]
+                },
+                "Victor Ambros, Gary Ruvkun (2024)": {
+                    discovery: "MicroRNA gene regulation",
+                    significance: "Tiny RNAs fine-tune gene expression",
+                    keywords: ["microRNA", "miRNA", "post-transcriptional regulation"]
+                },
+                
+                // Development & Stem Cells
+                "Edward Lewis, Christiane Nüsslein-Volhard, Eric Wieschaus (1995)": {
+                    discovery: "Genetic control of embryonic development",
+                    significance: "HOX genes and signaling determine body plan in embryos",
+                    keywords: ["developmental biology", "HOX genes", "body patterning"]
+                },
+                "Sydney Brenner, H. Robert Horvitz, John Sulston (2002)": {
+                    discovery: "Programmed cell death (apoptosis)",
+                    significance: "Cells commit suicide during development and disease",
+                    keywords: ["apoptosis", "cell death", "C. elegans"]
+                },
+                "John Gurdon, Shinya Yamanaka (2012)": {
+                    discovery: "Cellular reprogramming to pluripotency",
+                    significance: "Adult cells can be turned back into stem cells",
+                    keywords: ["induced pluripotent stem cells", "iPSC", "reprogramming", "yamanaka factors"]
+                },
+                "Mario Capecchi, Martin Evans, Oliver Smithies (2007)": {
+                    discovery: "Gene targeting in mice - knockout technology",
+                    significance: "Deleting specific genes to study their function",
+                    keywords: ["knockout mice", "gene targeting", "homologous recombination"]
+                },
+                "Robert Edwards (2010)": {
+                    discovery: "In vitro fertilization",
+                    significance: "Conception outside the body - millions of IVF babies born",
+                    keywords: ["IVF", "test tube baby", "assisted reproduction"]
+                },
+                "Yoshinori Ohsumi (2016)": {
+                    discovery: "Autophagy mechanisms",
+                    significance: "How cells recycle their components - garbage disposal system",
+                    keywords: ["autophagy", "cellular recycling", "lysosomes"]
+                },
+                "Elizabeth Blackburn, Carol Greider, Jack Szostak (2009)": {
+                    discovery: "Telomeres and telomerase",
+                    significance: "Chromosome ends protected by telomeres, aging related to shortening",
+                    keywords: ["telomeres", "telomerase", "chromosome ends", "aging"]
+                },
+                
+                // Neuroscience
+                "Camillo Golgi, Santiago Ramón y Cajal (1906)": {
+                    discovery: "Structure of the nervous system",
+                    significance: "Neurons are individual cells, not a continuous network",
+                    keywords: ["neuron doctrine", "nerve cells", "golgi stain"]
+                },
+                "Charles Sherrington, Edgar Adrian (1932)": {
+                    discovery: "Function of neurons",
+                    significance: "Reflexes and nerve impulses - electrical signaling in nerves",
+                    keywords: ["reflex arc", "action potential", "nerve impulse"]
+                },
+                "John Eccles, Alan Hodgkin, Andrew Huxley (1963)": {
+                    discovery: "Ionic basis of nerve impulse",
+                    significance: "Sodium and potassium flow creates electrical signals",
+                    keywords: ["action potential", "sodium channels", "nerve conduction"]
+                },
+                "Bernard Katz, Ulf von Euler, Julius Axelrod (1970)": {
+                    discovery: "Neurotransmitter storage, release, and inactivation",
+                    significance: "How chemical signals pass between neurons",
+                    keywords: ["neurotransmitters", "synaptic transmission", "norepinephrine"]
+                },
+                "Arvid Carlsson, Paul Greengard, Eric Kandel (2000)": {
+                    discovery: "Signal transduction in nervous system",
+                    significance: "Dopamine signaling and molecular basis of learning/memory",
+                    keywords: ["dopamine", "signal transduction", "memory formation"]
+                },
+                "Erwin Neher, Bert Sakmann (1991)": {
+                    discovery: "Patch clamp technique for ion channels",
+                    significance: "Record current through single ion channel - like listening to doors opening",
+                    keywords: ["patch clamp", "ion channels", "single channel recording"]
+                },
+                "Peter Agre, Roderick MacKinnon (2003)": {
+                    discovery: "Water channels and ion channel structure",
+                    significance: "Aquaporins let water cross membranes, atomic structure of K+ channel",
+                    keywords: ["aquaporin", "ion channel structure", "membrane transport"]
+                },
+                "Roger Sperry, David Hubel, Torsten Wiesel (1981)": {
+                    discovery: "Split brain and visual system organization",
+                    significance: "Left and right brain hemispheres, visual cortex processes edges and orientation",
+                    keywords: ["split brain", "visual cortex", "cortical columns"]
+                },
+                "John O'Keefe, May-Britt Moser, Edvard Moser (2014)": {
+                    discovery: "Place cells and grid cells - brain's GPS",
+                    significance: "Neurons that map position in space",
+                    keywords: ["place cells", "grid cells", "spatial navigation"]
+                },
+                "Jeffrey Hall, Michael Rosbash, Michael Young (2017)": {
+                    discovery: "Molecular mechanisms of circadian rhythm",
+                    significance: "Clock genes create 24-hour biological rhythms",
+                    keywords: ["circadian rhythm", "biological clock", "period gene"]
+                },
+                "David Julius, Ardem Patapoutian (2021)": {
+                    discovery: "Receptors for temperature and touch",
+                    significance: "Ion channels that detect heat, cold, and pressure",
+                    keywords: ["TRP channels", "mechanosensation", "temperature sensing"]
+                },
+                "Richard Axel, Linda Buck (2004)": {
+                    discovery: "Odorant receptors and organization of olfactory system",
+                    significance: "~1000 different smell receptors create our sense of smell",
+                    keywords: ["olfactory receptors", "smell", "chemosensation"]
+                },
+                
+                // Cell Biology & Signaling
+                "Alfred Gilman, Martin Rodbell (1994)": {
+                    discovery: "G-proteins in signal transduction",
+                    significance: "Molecular switches that relay signals from cell surface to interior",
+                    keywords: ["G-proteins", "signal transduction", "second messengers"]
+                },
+                "Robert Lefkowitz, Brian Kobilka (2012)": {
+                    discovery: "G-protein-coupled receptors",
+                    significance: "Structure and function of receptors that sense hormones, neurotransmitters, light",
+                    keywords: ["GPCR", "receptor structure", "signaling"]
+                },
+                "Robert Furchgott, Louis Ignarro, Ferid Murad (1998)": {
+                    discovery: "Nitric oxide as cardiovascular signaling molecule",
+                    significance: "Gas molecule relaxes blood vessels - basis for Viagra",
+                    keywords: ["nitric oxide", "NO", "vasodilation"]
+                },
+                "Stanley Cohen, Rita Levi-Montalcini (1986)": {
+                    discovery: "Growth factors",
+                    significance: "NGF and EGF control cell survival and proliferation",
+                    keywords: ["growth factors", "NGF", "EGF"]
+                },
+                "Leland Hartwell, Tim Hunt, Paul Nurse (2001)": {
+                    discovery: "Cell cycle regulation",
+                    significance: "Cyclins and CDKs control cell division checkpoints",
+                    keywords: ["cell cycle", "cyclins", "CDK", "checkpoints"]
+                },
+                "J. Michael Bishop, Harold Varmus (1989)": {
+                    discovery: "Cellular origin of retroviral oncogenes",
+                    significance: "Cancer genes are mutated versions of normal genes",
+                    keywords: ["oncogenes", "src", "cancer"]
+                },
+                "Michael Brown, Joseph Goldstein (1985)": {
+                    discovery: "LDL receptor and cholesterol metabolism",
+                    significance: "How cells take up cholesterol - led to statin drugs",
+                    keywords: ["LDL receptor", "cholesterol", "familial hypercholesterolemia"]
+                },
+                "Günter Blobel (1999)": {
+                    discovery: "Signal peptides direct protein trafficking",
+                    significance: "Proteins have zip codes telling them where to go in the cell",
+                    keywords: ["signal peptide", "protein targeting", "ER translocation"]
+                },
+                "James Rothman, Randy Schekman, Thomas Südhof (2013)": {
+                    discovery: "Vesicle trafficking in cells",
+                    significance: "How cargo is packaged, transported, and delivered inside cells",
+                    keywords: ["vesicle transport", "SNARE proteins", "membrane fusion"]
+                },
+                
+                // Physiology & Clinical Medicine
+                "Frederick Banting, J.J.R. Macleod (1923)": {
+                    discovery: "Insulin",
+                    significance: "Hormone that controls blood sugar - saved diabetics from certain death",
+                    keywords: ["insulin", "diabetes", "pancreas"]
+                },
+                "Willem Einthoven (1924)": {
+                    discovery: "Electrocardiogram",
+                    significance: "Recording electrical activity of the heart",
+                    keywords: ["ECG", "EKG", "cardiac electrical activity"]
+                },
+                "Philip Hench, Edward Kendall, Tadeus Reichstein (1950)": {
+                    discovery: "Adrenal cortex hormones",
+                    significance: "Cortisone for treating inflammation and arthritis",
+                    keywords: ["cortisone", "steroids", "anti-inflammatory"]
+                },
+                "Allan Cormack, Godfrey Hounsfield (1979)": {
+                    discovery: "Computed tomography (CT scan)",
+                    significance: "X-ray imaging from multiple angles creates 3D pictures",
+                    keywords: ["CT scan", "CAT scan", "medical imaging"]
+                },
+                "Paul Lauterbur, Peter Mansfield (2003)": {
+                    discovery: "Magnetic resonance imaging (MRI)",
+                    significance: "Using magnetic fields and radio waves to image soft tissues",
+                    keywords: ["MRI", "magnetic resonance", "medical imaging"]
+                },
+                "Rosalyn Yalow (1977)": {
+                    discovery: "Radioimmunoassay",
+                    significance: "Ultra-sensitive method to measure hormones and drugs in blood",
+                    keywords: ["RIA", "radioimmunoassay", "hormone measurement"]
+                },
+                "James Black, Gertrude Elion, George Hitchings (1988)": {
+                    discovery: "Rational drug design",
+                    significance: "Designing drugs based on understanding disease mechanisms - beta blockers, antivirals",
+                    keywords: ["drug design", "beta blockers", "rational design"]
+                },
+                "William Kaelin, Peter Ratcliffe, Gregg Semenza (2019)": {
+                    discovery: "How cells sense and adapt to oxygen",
+                    significance: "HIF pathway controls response to low oxygen - cancer and anemia therapy",
+                    keywords: ["hypoxia", "HIF", "oxygen sensing"]
+                },
+                "Katalin Karikó, Drew Weissman (2023)": {
+                    discovery: "Nucleoside modifications enabling mRNA vaccines",
+                    significance: "Modified mRNA doesn't trigger immune response - enabled COVID-19 vaccines",
+                    keywords: ["mRNA vaccine", "nucleoside modification", "vaccine development"]
+                },
+                "Svante Pääbo (2022)": {
+                    discovery: "Genomes of extinct hominins and human evolution",
+                    significance: "Sequenced Neanderthal DNA, showed interbreeding with humans",
+                    keywords: ["paleogenomics", "neanderthal", "ancient DNA"]
+                }
+            },
+            
+            Economics: {
+                "Daniel Kahneman (2002)": {
+                    discovery: "Behavioral economics and cognitive biases",
+                    significance: "Humans are predictably irrational - prospect theory shows we fear losses more than value gains",
+                    keywords: ["prospect theory", "cognitive bias", "heuristics"]
+                },
+                "Richard Thaler (2017)": {
+                    discovery: "Behavioral economics and nudge theory",
+                    significance: "Small changes in choice architecture can improve decisions without restricting freedom",
+                    keywords: ["nudge", "libertarian paternalism", "choice architecture"]
+                },
+                "Robert Shiller (2013)": {
+                    discovery: "Empirical analysis of asset prices",
+                    significance: "Markets are driven by psychology - irrational exuberance causes bubbles",
+                    keywords: ["bubbles", "behavioral finance", "irrational exuberance"]
+                },
+                "John Nash, John Harsanyi, Reinhard Selten (1994)": {
+                    discovery: "Game theory and equilibrium",
+                    significance: "Nash equilibrium - stable state where no player benefits from changing strategy",
+                    keywords: ["game theory", "nash equilibrium", "strategic interaction"]
+                },
+                "Thomas Schelling (2005)": {
+                    discovery: "Game theory applied to conflict and cooperation",
+                    significance: "Commitment strategies and focal points in bargaining",
+                    keywords: ["bargaining", "commitment", "coordination games"]
+                },
+                "Robert Aumann (2005)": {
+                    discovery: "Conflict and cooperation through game theory",
+                    significance: "Repeated games and common knowledge",
+                    keywords: ["repeated games", "folk theorem", "rationality"]
+                },
+                "Paul Samuelson (1970)": {
+                    discovery: "Static and dynamic economic theory",
+                    significance: "Mathematical foundations of modern economics",
+                    keywords: ["revealed preference", "welfare economics", "economic dynamics"]
+                },
+                "Kenneth Arrow, John Hicks (1972)": {
+                    discovery: "General equilibrium theory",
+                    significance: "How all markets reach equilibrium simultaneously",
+                    keywords: ["general equilibrium", "welfare economics", "impossibility theorem"]
+                },
+                "Milton Friedman (1976)": {
+                    discovery: "Consumption analysis and monetary history",
+                    significance: "Permanent income hypothesis and monetarism",
+                    keywords: ["monetarism", "permanent income", "inflation"]
+                },
+                "Robert Solow (1987)": {
+                    discovery: "Theory of economic growth",
+                    significance: "Technology drives long-run growth, not just capital accumulation",
+                    keywords: ["growth theory", "technological progress", "solow model"]
+                },
+                "Paul Romer (2018)": {
+                    discovery: "Endogenous growth theory",
+                    significance: "Ideas and innovation are the engine of economic growth",
+                    keywords: ["endogenous growth", "innovation", "knowledge economy"]
+                },
+                "William Nordhaus (2018)": {
+                    discovery: "Climate change economics",
+                    significance: "Integrated assessment of climate change and economic growth",
+                    keywords: ["climate economics", "carbon pricing", "environmental economics"]
+                },
+                "Elinor Ostrom (2009)": {
+                    discovery: "Economic governance of commons",
+                    significance: "Communities can manage shared resources without privatization or government",
+                    keywords: ["common pool resources", "self-governance", "tragedy of the commons"]
+                },
+                "Oliver Williamson (2009)": {
+                    discovery: "Transaction cost economics",
+                    significance: "Why firms exist - to minimize costs of market transactions",
+                    keywords: ["transaction costs", "firm boundaries", "vertical integration"]
+                },
+                "Ronald Coase (1991)": {
+                    discovery: "Transaction costs and property rights",
+                    significance: "Coase theorem - with zero transaction costs, bargaining solves externalities",
+                    keywords: ["coase theorem", "property rights", "externalities"]
+                },
+                "Amartya Sen (1998)": {
+                    discovery: "Welfare economics and poverty",
+                    significance: "Capabilities approach - poverty is lack of freedom to achieve well-being",
+                    keywords: ["capabilities", "famine", "social choice"]
+                },
+                "Angus Deaton (2015)": {
+                    discovery: "Consumption, poverty, and welfare",
+                    significance: "How to measure living standards and design policies to reduce poverty",
+                    keywords: ["consumption analysis", "poverty measurement", "health economics"]
+                },
+                "Abhijit Banerjee, Esther Duflo, Michael Kremer (2019)": {
+                    discovery: "Experimental approach to alleviating poverty",
+                    significance: "Randomized controlled trials test which development interventions actually work",
+                    keywords: ["RCTs", "development economics", "evidence-based policy"]
+                },
+                "Gary Becker (1992)": {
+                    discovery: "Microeconomic analysis of human behavior",
+                    significance: "Economic approach to family, discrimination, crime, and human capital",
+                    keywords: ["human capital", "economics of discrimination", "family economics"]
+                },
+                "Eugene Fama, Robert Shiller, Lars Peter Hansen (2013)": {
+                    discovery: "Empirical analysis of asset prices",
+                    significance: "Markets are both efficient and sometimes irrational",
+                    keywords: ["efficient markets", "asset pricing", "stock market"]
+                },
+                "Harry Markowitz, Merton Miller, William Sharpe (1990)": {
+                    discovery: "Financial economics",
+                    significance: "Portfolio theory, capital structure, and CAPM model",
+                    keywords: ["portfolio theory", "diversification", "CAPM"]
+                },
+                "Robert Merton, Myron Scholes (1997)": {
+                    discovery: "Options pricing - Black-Scholes formula",
+                    significance: "Mathematical model for pricing derivatives",
+                    keywords: ["options pricing", "black-scholes", "derivatives"]
+                },
+                "Peter Diamond, Dale Mortensen, Christopher Pissarides (2010)": {
+                    discovery: "Markets with search frictions",
+                    significance: "Why unemployment persists - matching workers and jobs takes time",
+                    keywords: ["search theory", "unemployment", "matching"]
+                },
+                "Alvin Roth, Lloyd Shapley (2012)": {
+                    discovery: "Stable allocations and market design",
+                    significance: "Matching algorithms for kidney exchange and school choice",
+                    keywords: ["matching theory", "market design", "kidney exchange"]
+                },
+                "Paul Milgrom, Robert Wilson (2020)": {
+                    discovery: "Auction theory and new auction formats",
+                    significance: "Designing auctions that efficiently allocate resources like spectrum",
+                    keywords: ["auction theory", "mechanism design", "spectrum auctions"]
+                },
+                "Jean Tirole (2014)": {
+                    discovery: "Market power and regulation",
+                    significance: "How to regulate monopolies and oligopolies",
+                    keywords: ["industrial organization", "regulation", "market power"]
+                },
+                "Oliver Hart, Bengt Holmström (2016)": {
+                    discovery: "Contract theory",
+                    significance: "Optimal contracts under moral hazard and incomplete information",
+                    keywords: ["contract theory", "moral hazard", "incentives"]
+                },
+                "Ben Bernanke, Douglas Diamond, Philip Dybvig (2022)": {
+                    discovery: "Banks, financial crises, and bank runs",
+                    significance: "Why bank runs happen and how to prevent financial crises",
+                    keywords: ["financial crisis", "bank runs", "deposit insurance"]
+                },
+                "Paul Krugman (2008)": {
+                    discovery: "Trade patterns and economic geography",
+                    significance: "Why trade happens and why economic activity clusters in cities",
+                    keywords: ["new trade theory", "economic geography", "agglomeration"]
+                },
+                "Daron Acemoglu, Simon Johnson, James Robinson (2024)": {
+                    discovery: "How institutions shape economic prosperity",
+                    significance: "Inclusive institutions lead to growth, extractive ones to poverty",
+                    keywords: ["institutions", "economic development", "political economy"]
+                },
+                "Claudia Goldin (2023)": {
+                    discovery: "Women's labor market outcomes",
+                    significance: "Historical analysis of gender gaps in employment and wages",
+                    keywords: ["gender economics", "labor markets", "wage gap"]
+                },
+                "David Card (2021)": {
+                    discovery: "Empirical contributions to labor economics",
+                    significance: "Natural experiments show minimum wage doesn't always reduce employment",
+                    keywords: ["labor economics", "minimum wage", "immigration"]
+                },
+                "Joshua Angrist, Guido Imbens (2021)": {
+                    discovery: "Causal relationships in econometrics",
+                    significance: "Instrumental variables and local average treatment effects",
+                    keywords: ["causality", "instrumental variables", "treatment effects"]
+                }
+            }
+        };
+
         // ==================== TNCP FUNCTIONS ====================
         
         // Deterministic Random Number Generator
